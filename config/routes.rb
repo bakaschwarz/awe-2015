@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  #get 'static_pages/home'
+
+  root 'static_pages#home'
+  
+  
   resources :projects
   resources :users
   resources :groups
