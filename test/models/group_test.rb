@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class GroupTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @group = groups(:alpha)
+  end
+
+  test "name should not be blank" do
+    @group.name = "    "
+    assert_not @group.valid?
+  end
 end

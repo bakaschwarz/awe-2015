@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  admin: false
-  group_id: 1
+admin:
+  first_name: Max
+  last_name: Musteradmin
+  admin: true
+  group_id: 0
 
-two:
-  first_name: MyString
-  last_name: MyString
+user:
+  first_name: Sabine
+  last_name: Kuske
   admin: false
-  group_id: 1
+  group_id: 0

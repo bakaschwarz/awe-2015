@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%h1 Nutzer Liste
+
+%table
+  %thead
+    %tr
+      %th Vorname
+      %th Nachname
+      %th Projektleiter?
+      %th Gruppe
+      %th{colspan: "3"}
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.admin? ? "Ja" : "Nein"
+        %td
+          - begin
+            = Group.find(user.group_id).name
+          - rescue
+            N/A
+        %td= link_to 'Anzeigen', user
+        %td= link_to 'Bearbeiten', edit_user_path(user)
+        %td= link_to 'Entfernen', user, method: :delete, data: { confirm: 'Sind Sie sich sicher?' }
+
+%br
+
+= link_to 'New User', new_user_path

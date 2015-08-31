@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  repo: MyString
-  group_id: 1
-
-two:
-  name: MyString
-  repo: MyString
-  group_id: 1
+superproject:
+  name: SuperProjekt
+  repo: http://example.com
+  group_id: 0
