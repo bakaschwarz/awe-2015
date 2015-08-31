@@ -3,11 +3,11 @@
   %strong Name:
   = @project.name
 %p
-  %strong Repo:
+  %strong Repository:
   = @project.repo
 %p
-  %strong Group:
+  %strong Gruppe:
   = @project.group_id
-= link_to 'Edit', edit_project_path(@project)
+= link_to 'Bearbeiten', edit_project_path(@project)
 |
 \#{link_to 'Back', projects_path}

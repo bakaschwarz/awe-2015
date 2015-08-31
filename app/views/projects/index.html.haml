@@ -1,18 +1,22 @@
 %p#notice= notice
-%h1 Listing Projects
+%h1 Projekt Liste
 %table
   %thead
     %tr
       %th Name
-      %th Repo
-      %th Group
+      %th Repository
+      %th Gruppe
       %th{:colspan => "3"}
   %tbody
     - @projects.each do |project|
       %tr
         %td= project.name
         %td= project.repo
-        %td= project.group_id
+        %td
+          - begin
+            = Group.find(project.group_id).name
+          - rescue
+            N/A
         %td= link_to 'Anzeigen', project
         %td= link_to 'Bearbeiten', edit_project_path(project)
         %td= link_to 'Entfernen', project, method: :delete, data: { confirm: 'Sind Sie sich sicher?' }
