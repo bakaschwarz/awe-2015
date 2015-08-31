@@ -22,4 +22,4 @@
     = f.label "Gruppe"
     = f.collection_select :group_id, Group.order(:name), :id, :name, include_blank: true
   %div.actions
-    = f.submit "Erstelle Nutzer"
+    = f.submit "Speichere Nutzer"
