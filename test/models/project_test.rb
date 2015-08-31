@@ -6,12 +6,15 @@ class ProjectTest < ActiveSupport::TestCase
     @project = projects(:superproject)
   end
 
+
+
   test "repo can be blank or is valid url" do
-    @project.name = "    "
+    @project.repo = "    "
     assert @project.valid?
-    @project.name = "http://example.com/harald/myrepo"
+    @project.repo = "http://example.com/harald/myrepo"
     assert @project.valid?
   end
+
 
   test "repo should not have invalid address" do
     invalid_names = %w[bloat@windows.& 1234.de./ log._ htttp://hallo.org
