@@ -1,23 +1,23 @@
 = form_for(@project) do |f|
-- if @project.errors.any?
-#error_explanation
-%h2
-= pluralize(@project.errors.count, "error")
-prohibited this project from being saved:
-%ul
-- @project.errors.full_messages.each do |message|
-%li= message
-.field
-= f.label :name
-%br/
-= f.text_field :name
-.field
-= f.label :repo
-%br/
-= f.text_field :repo
-.field
-= f.label :group_id
-%br/
-= f.number_field :group_id
-.actions
-= f.submit
+  - if @project.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@project.errors.count, "error")
+        prohibited this project from being saved:
+      %ul
+        - @project.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = "Name"
+    %br/
+    = f.text_field :name
+  .field
+    = "Repository"
+    %br/
+    = f.text_field :repo
+  .field
+    = "Gruppe"
+    %br/
+    = f.collection_select :group_id, Group.order(:name), :id, :name, include_blank: true
+  .actions
+    = f.submit "Erstelle Projekt"
