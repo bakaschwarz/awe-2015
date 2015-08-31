@@ -4,15 +4,11 @@
   %thead
     %tr
       %th Name
-      %th Bla
       %th{:colspan => "3"}
   %tbody
     - @groups.each do |group|
       %tr
         %td= group.name
-        %td
-          - group.projects.each do |pro|
-            = pro.name
         %td= link_to 'Anzeigen', group
         %td= link_to 'Bearbeiten', edit_group_path(group)
         %td= link_to 'Entfernen', group, method: :delete, data: { confirm: 'Sind Sie sich sicher?' }
