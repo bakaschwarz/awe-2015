@@ -8,8 +8,8 @@
         - @group.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :name
+    = "Name"
     %br/
     = f.text_field :name
   .actions
-    = f.submit
+    = f.submit "Erstelle Gruppe"

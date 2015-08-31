@@ -1,5 +1,5 @@
 %p#notice= notice
-%h1 Listing Groups
+%h1 Gruppen Liste
 %table
   %thead
     %tr
@@ -9,8 +9,8 @@
     - @groups.each do |group|
       %tr
         %td= group.name
-        %td= link_to 'Show', group
-        %td= link_to 'Edit', edit_group_path(group)
-        %td= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Anzeigen', group
+        %td= link_to 'Bearbeiten', edit_group_path(group)
+        %td= link_to 'Entfernen', group, method: :delete, data: { confirm: 'Sind Sie sich sicher?' }
 %br/
-= link_to 'New Group', new_group_path
+= link_to 'Neue Gruppe', new_group_path

@@ -13,8 +13,8 @@
         %td= project.name
         %td= project.repo
         %td= project.group_id
-        %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Anzeigen', project
+        %td= link_to 'Bearbeiten', edit_project_path(project)
+        %td= link_to 'Entfernen', project, method: :delete, data: { confirm: 'Sind Sie sich sicher?' }
 %br/
-= link_to 'New Project', new_project_path
+= link_to 'Neues Projekt', new_project_path
