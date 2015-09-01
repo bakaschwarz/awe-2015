@@ -13,6 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'actionmailer'
 
 group :development, :test do
   gem 'byebug'
