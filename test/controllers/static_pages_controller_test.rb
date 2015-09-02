@@ -6,8 +6,8 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get config" do
-    get :config
+  test "should get wetter_config" do
+    get :wetter_config
     assert_response :success
   end
 
