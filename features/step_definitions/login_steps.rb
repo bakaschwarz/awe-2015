@@ -20,7 +20,7 @@ And(/^I visit the config$/) do
   visit static_pages_wetter_config_path
 end
 
-Given(/^I am a valid user with the mail "([^"]*)" and the password "([^"]*)"$/) do |arg1, arg2|
+Given(/^I am a user with the mail "([^"]*)" and the password "([^"]*)"$/) do |arg1, arg2|
   @email = arg1
   @password = arg2
 end
@@ -39,7 +39,5 @@ And(/^press the login button$/) do
 end
 
 Then(/^I will be redirected to the dashboard$/) do
-  unless current_url == root_url
-    raise
-  end
+  expect(current_url == root_url).to be true
 end
