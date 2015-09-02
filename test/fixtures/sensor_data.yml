@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  node: 1
+  timestamp: 
+  sensor_id: 1
+  value: 
+
+two:
+  node: 1
+  timestamp: 
+  sensor_id: 1
+  value: 
