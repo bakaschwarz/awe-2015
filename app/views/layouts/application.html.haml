@@ -9,4 +9,10 @@
   %body
     %notice= notice
     %alert= alert
+    - if user_signed_in?
+      %ul
+        %li= link_to "Dashbaord", static_pages_dashboard_path
+        %li= link_to "Configuration", static_pages_wetter_config_path
+        %li= link_to "Sign out", destroy_user_session_path, :method => :delete  
+
     = yield
