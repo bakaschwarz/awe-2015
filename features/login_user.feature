@@ -6,13 +6,11 @@ Feature: Login
     Given the database has a user with the mail "example@example.com" and the password "asdf"
 
   Scenario: Logged out user visits the dashboard
-    When I am not logged in
-    And I visit the dashboard
+    When I visit the dashboard
     Then I am redirected to the login page
 
   Scenario: Logged out user visits the config
-    When I am not logged in
-    And I visit the config
+    When I visit the config
     Then I am redirected to the login page
 
   Scenario: Logged out user logs in

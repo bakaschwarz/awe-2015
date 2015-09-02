@@ -22,7 +22,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'cucumber'
   gem 'rspec-rails'
   gem 'spork'
