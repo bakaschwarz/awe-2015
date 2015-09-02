@@ -9,8 +9,10 @@
   %body
     %notice= notice
     %alert= alert
+    -#= "uga"
+    -#%a.btn.btn-primary{ href: "#"}= "test"
     - if user_signed_in?
-      %ul
+      %ul.nav.nav-pills
         %li= link_to "Dashbaord", static_pages_dashboard_path
         %li= link_to "Configuration", static_pages_wetter_config_path
         %li= link_to "Sign out", destroy_user_session_path, :method => :delete  
