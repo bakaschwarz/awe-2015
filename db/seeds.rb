@@ -10,5 +10,21 @@ User.create!(
   email: "example@example.com",
   password: "asdf",
   password_confirmation: "asdf"
-  
   )
+
+Sensor.create!([
+  {
+    label: "UV-Licht vorne",
+    unit: "lux",
+    active: true,
+    visualization: "Liniendiagramm",
+    sensor: "UV-2421-mega"
+  }, 
+  {
+    label: "Temperatur",
+    unit: "C",
+    active: true,
+    visualization: "Liniendiagramm",
+    sensor: "temp-1000"
+  }
+  ])

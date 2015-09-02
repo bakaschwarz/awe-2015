@@ -1,2 +1,15 @@
-%h1 StaticPages#config
-%p Find me in app/views/static_pages/config.html.haml
+%h1 Sensor Configuration
+%table.table.table-striped
+  %tr
+    %th= "Label"
+    %th= "Unit"
+    %th= "Sensor version"
+    %th= "Visualization"
+    %th= "Active?"
+  -@sensors.each do |sensor|
+    %tr
+      %td= sensor.label
+      %td= sensor.unit
+      %td= sensor.sensor
+      %td= sensor.visualization
+      %td= sensor.active
