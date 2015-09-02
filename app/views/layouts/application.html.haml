@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Wetterueberwachung
+    %title Wetterüberwachung
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -11,8 +11,8 @@
     %alert= alert
     - if user_signed_in?
       %ul.nav.nav-pills
-        %li= link_to "Dashboard", static_pages_dashboard_path
+        %li= link_to "Dashboard", root_path
         %li= link_to "Configuration", static_pages_wetter_config_path
-        %li#signout= link_to "Sign Out", destroy_user_session_path, :method => :delete
+        %li= link_to "Sign Out", destroy_user_session_path, :method => :delete
 
     = yield
