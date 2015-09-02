@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901165850) do
+ActiveRecord::Schema.define(version: 20150902111355) do
+
+  create_table "sensor_data", force: :cascade do |t|
+    t.integer  "node"
+    t.integer  "timestamp",  limit: 8
+    t.integer  "sensor_id"
+    t.float    "value"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "sensors", force: :cascade do |t|
+    t.string   "sensor"
+    t.string   "label"
+    t.string   "unit"
+    t.string   "visualization"
+    t.boolean  "active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

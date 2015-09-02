@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sensor: MyString
+  label: MyString
+  unit: MyString
+  visualization: MyString
+  active: false
+
+two:
+  sensor: MyString
+  label: MyString
+  unit: MyString
+  visualization: MyString
+  active: false
