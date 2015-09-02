@@ -20,6 +20,13 @@ group :development, :test do
   gem 'web-console'
   gem 'spring'
   gem 'sqlite3'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails', require: false
+  gem 'cucumber'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'launchy'
 end
 
 group :test do
