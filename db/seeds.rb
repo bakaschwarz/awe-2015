@@ -17,25 +17,25 @@ Sensor.create!([
     label: "UV-Licht vorne",
     unit: "lux",
     active: true,
-    visualization: "Liniendiagramm",
+    visualization_type_id: 1,
     sensor: "UV-2421-mega",
     abbrevation: "UV",
     station: 1
   }, 
   {
     label: "Temperatur Luft",
-    unit: "C",
+    unit: "°C",
     active: true,
-    visualization: "Liniendiagramm",
+    visualization_type_id: 1,
     sensor: "temp-1000",
     abbrevation: "T1",
     station: 1
   },
   {
     label: "Temperatursensor Strahlung",
-    unit: "C",
+    unit: "°C",
     active: false,
-    visualization: "Punktediagramm",
+    visualization_type_id: 2,
     sensor: "tempX-2200",
     abbrevation: "T2",
     station: 1

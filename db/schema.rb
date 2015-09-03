@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20150903100019) do
     t.string   "sensor"
     t.string   "label"
     t.string   "unit"
-    t.string   "visualization"
     t.boolean  "active"
     t.string   "abbrevation"
     t.integer  "station"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "visualization_type_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|

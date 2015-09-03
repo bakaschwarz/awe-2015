@@ -1,5 +1,5 @@
 class SensorsController < ApplicationController
-  before_action :set_sensor, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, :set_sensor, only: [:show, :update, :destroy]
 
   def index
     redirect_to static_pages_wetter_config_path
@@ -24,7 +24,7 @@ class SensorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sensor_params
-      params.require(:sensor).permit(:label, :unit, :visualization, :sensor, :active, :abbrevation)
+      params.require(:sensor).permit(:label, :unit, :visualization_type_id, :sensor, :active, :abbrevation)
     end
 
 end

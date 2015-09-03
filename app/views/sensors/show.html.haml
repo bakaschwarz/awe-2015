@@ -1,26 +1,36 @@
 %h1 Editing the sensor
 
 = form_for(@sensor) do |f|
-  .field 
-    = f.label :label
-    = f.text_field :label
-  .field
-    = f.label :unit
-    = f.text_field :unit
-  .field
-    = f.label :sensor
-    = f.text_field :sensor
-  .field
-    = f.label :visualization
-    = f.text_field :visualization
-  .field
-    = f.label :abbrevation
-    = f.text_field :abbrevation
-  .field
-    = f.label :station
-    = f.text_field :station
-  .field
-    =f.label :active
-    = f.check_box :active
-  .actions
-    = f.submit
+  %table.table.table-striped
+    %tr
+      .field 
+        %td= f.label :label
+        %td= f.text_field :label
+    %tr
+      .field
+        %td= f.label :unit
+        %td= f.text_field :unit
+    %tr
+      .field
+        %td= f.label :sensor
+        %td= f.text_field :sensor
+    %tr
+      .field
+        %td= f.label :visualization_type_id
+        %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name, include_blank: true
+    %tr
+      .field
+        %td= f.label :abbrevation
+        %td= f.text_field :abbrevation
+    %tr
+      .field
+        %td= f.label :station
+        %td= f.text_field :station
+    %tr
+      .field
+        %td=f.label :active
+        %td= f.check_box :active
+    %tr
+      .actions
+      %td= f.submit
+      %td

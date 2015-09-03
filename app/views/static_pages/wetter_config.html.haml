@@ -5,7 +5,7 @@
     %th= "Unit"
     %th= "Sensor version"
     %th= "Abbrevation in JSON"
-    %th= "Station Number"
+    %th= "Station number"
     %th= "Visualization"
     %th= "Active?"
     %th= ""
@@ -17,7 +17,7 @@
       %td= sensor.sensor
       %td= sensor.abbrevation
       %td= sensor.station
-      %td= sensor.visualization
+      %td= sensor.visualization_type.name
       %td
         %input{ type: "checkbox", name: "active", value: i, checked: sensor.active, disabled: true}
       %td= link_to 'Edit', sensor
