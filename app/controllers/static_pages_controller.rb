@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
 
   def wetter_config
     @sensors = Sensor.all
+    @visualizationTypes = VisualizationType.all
   end
 
 end

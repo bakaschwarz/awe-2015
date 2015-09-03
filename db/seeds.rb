@@ -21,10 +21,29 @@ Sensor.create!([
     sensor: "UV-2421-mega"
   }, 
   {
-    label: "Temperatur",
+    label: "Temperatur 1",
     unit: "C",
     active: true,
     visualization: "Liniendiagramm",
     sensor: "temp-1000"
+  },
+  {
+    label: "Temperatur 2",
+    unit: "C",
+    active: false,
+    visualization: "Punktediagramm",
+    sensor: "tempX-2200"
+  }
+  ])
+
+VisualizationType.create!([
+  {
+    name: "Punktediagramm"
+  },
+  {
+    name: "Liniendiagramm"
+  },
+  {
+    name: "Balkendiagramm"
   }
   ])

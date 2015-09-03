@@ -6,10 +6,21 @@
     %th= "Sensor version"
     %th= "Visualization"
     %th= "Active?"
+  -i = 1
   -@sensors.each do |sensor|
     %tr
-      %td= sensor.label
-      %td= sensor.unit
+      %td
+        %input{ type: "text", value: sensor.label}
+      %td
+        %input{ type: "text", value: sensor.unit}
       %td= sensor.sensor
-      %td= sensor.visualization
-      %td= sensor.active
+
+      %td
+        %select{ name: "visualization"}
+          -@visualizationTypes.each do |visualizationType|
+            %option{ value: visualizationType.name}= visualizationType.name 
+      %td
+        %input{ type: "checkbox", name: "active", value: i, checked: sensor.active}
+    -i = i + 1
+-@visualizationTypes.each do |visualizationType|
+  = visualizationType.name
