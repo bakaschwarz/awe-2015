@@ -1,0 +1,18 @@
+{
+  "0_1441217989": { //Kombination von Node und Timestamp als eindeutige Zuweisung im Hash
+    "temp_sensor_name": 23.03,
+    "humid_sensor_name": 68.11,
+    "pressure_sensor_name": 1024.30,
+    "light_sensor_name": 143,
+    "infrared_sensor_name": 103,
+    "uvlight_sensor_name": 0
+  },
+  "1_1441217989": {
+    "temp_sensor_name": 24.03,
+    "humid_sensor_name": 63.11,
+    "pressure_sensor_name": 1024.30,
+    "light_sensor_name": 143,
+    "infrared_sensor_name": 103,
+    "uvlight_sensor_name": 0
+  }
+}
