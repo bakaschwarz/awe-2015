@@ -5,7 +5,23 @@ class SensorsController < ApplicationController
     redirect_to static_pages_wetter_config_path
   end
 
-  def show
+  def show # Show is also for editing
+  end
+
+  def destroy
+  end
+
+  def create
+    @sensor = Sensor.new(sensor_params)
+    if @sensor.save
+      redirect_to static_pages_wetter_config_path
+    else
+      #handle unsuccessful create
+    end
+  end
+
+  def new
+    @sensor = Sensor.new
   end
 
   def update
@@ -13,6 +29,14 @@ class SensorsController < ApplicationController
       redirect_to static_pages_wetter_config_path
     else
       # handle unsucessful update
+    end
+  end
+
+  def destroy
+    @sensor.destroy
+    respond_to do |format|
+      format.html { redirect_to static_pages_wetter_config_path, notice: 'Sensor was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

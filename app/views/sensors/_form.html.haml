@@ -1,0 +1,35 @@
+= form_for(@sensor) do |f|
+  %table.table.table-striped
+    %tr
+      .field 
+        %td= f.label :label
+        %td= f.text_field :label
+    %tr
+      .field
+        %td= f.label :unit
+        %td= f.text_field :unit
+    %tr
+      .field
+        %td= f.label :sensor
+        %td= f.text_field :sensor
+    %tr
+      .field
+        %td= f.label :visualization_type_id
+        %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name, include_blank: true
+    %tr
+      .field
+        %td= f.label :abbrevation
+        %td= f.text_field :abbrevation
+    %tr
+      .field
+        %td= f.label :station
+        %td= f.text_field :station
+    %tr
+      .field
+        %td=f.label :active
+        %td= f.check_box :active
+    %tr
+      .actions
+      %td= f.submit
+      %td
+%button.btn= link_to 'Back', static_pages_wetter_config_path
