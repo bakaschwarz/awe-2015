@@ -53,3 +53,7 @@ VisualizationType.create!([
     name: "Balkendiagramm"
   }
   ])
+
+ApiToken.create!(
+            token: "asdfghjkl"
+)

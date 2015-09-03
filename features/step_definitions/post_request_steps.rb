@@ -29,5 +29,4 @@ end
 
 Then(/^It will be added to the database$/) do
   expect(SensorDatum.first).not_to be_nil
-  puts SensorDatum.first.node
 end
