@@ -22,6 +22,9 @@ And(/^it contains the timestamp "([^"]*)" as well as the node "([^"]*)"$/) do |a
   @json_file[:node] = arg2.to_i
 end
 
+And(/^it contains the correct API Token$/) do
+  @json_file[:api_token] = @api_token.token
+end
 
 When(/^I post it to the server$/) do
   page.driver.post("/weather_update/create", :weather_update => @json_file)
@@ -29,4 +32,12 @@ end
 
 Then(/^It will be added to the database$/) do
   expect(SensorDatum.first).not_to be_nil
+end
+
+
+And(/^the database contains an api token$/) do
+  @api_token = ApiToken.new(
+                           token: SecureRandom.hex
+  )
+  @api_token.save
 end
