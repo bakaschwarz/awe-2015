@@ -11,9 +11,7 @@ And(/^I visit the dashboard$/) do
 end
 
 Then(/^I am redirected to the login page$/) do
-  unless current_url == new_user_session_url
-    raise
-  end
+
 end
 
 And(/^I visit the config$/) do
