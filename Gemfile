@@ -26,6 +26,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'launchy'
+  gem 'rails-erd'
+  gem 'rack-test'
 end
 
 group :test do
