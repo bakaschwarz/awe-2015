@@ -13,7 +13,6 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'actionmailer'
 
 group :development, :test do
   gem 'byebug'
@@ -27,11 +26,14 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'launchy'
+  gem 'rails-erd'
+  gem 'rack-test'
 end
 
 group :test do
-  gem 'minitest-reporters'
-  gem 'mini_backtrace'
-  gem 'guard-minitest'
+  #gem 'minitest-reporters'
+  #gem 'mini_backtrace'
+  #gem 'guard-minitest'
   gem 'guard'
+  gem 'guard-cucumber'
 end

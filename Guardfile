@@ -15,11 +15,11 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard :minitest do
+#guard :minitest do
   # with Minitest::Unit
-  watch(%r{^test/(.*)\/?test_(.*)\.rb$})
-  watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
-  watch(%r{^test/test_helper\.rb$})      { 'test' }
+  #watch(%r{^test/(.*)\/?test_(.*)\.rb$})
+  #watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
+  #watch(%r{^test/test_helper\.rb$})      { 'test' }
 
   # with Minitest::Spec
   # watch(%r{^spec/(.*)_spec\.rb$})
@@ -39,4 +39,13 @@ guard :minitest do
   # watch(%r{^app/controllers/(.*)\.rb$}) { |m| "test/functional/#{m[1]}_test.rb" }
   # watch(%r{^app/helpers/(.*)\.rb$})     { |m| "test/helpers/#{m[1]}_test.rb" }
   # watch(%r{^app/models/(.*)\.rb$})      { |m| "test/unit/#{m[1]}_test.rb" }
+#end
+
+guard "cucumber" do
+  watch(%r{^features/.+\.feature$})
+  watch(%r{^features/support/.+$})          { "features" }
+
+  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
+    Dir[File.join("**/#{m[1]}.feature")][0] || "features"
+  end
 end
