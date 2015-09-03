@@ -53,3 +53,41 @@ VisualizationType.create!([
     name: "Balkendiagramm"
   }
   ])
+
+SensorDatum.create!([
+  {
+    time_stamp: 123543332,
+    sensor_id: 1,
+    value: 13
+  },
+  {
+    time_stamp: 123544332,
+    sensor_id: 1,
+    value: 16
+  },
+  {
+    time_stamp: 123545332,
+    sensor_id: 1,
+    value: 18
+  },
+  {
+    time_stamp: 123546332,
+    sensor_id: 1,
+    value: 19
+  },
+  {
+    time_stamp: 123545332,
+    sensor_id: 2,
+    value: 23.2
+  },
+  {
+    time_stamp: 123546332,
+    sensor_id: 2,
+    value: 23.3
+  },
+  {
+    time_stamp: 123547332,
+    sensor_id: 2,
+    value: 23.1
+  },
+  ])

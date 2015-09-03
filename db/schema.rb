@@ -14,8 +14,7 @@
 ActiveRecord::Schema.define(version: 20150903100019) do
 
   create_table "sensor_data", force: :cascade do |t|
-    t.integer  "node"
-    t.integer  "timestamp",  limit: 8
+    t.integer  "time_stamp", limit: 8
     t.integer  "sensor_id"
     t.float    "value"
     t.datetime "created_at",           null: false

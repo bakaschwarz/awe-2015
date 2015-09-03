@@ -1,2 +1,14 @@
-%h1 StaticPages#dashboard
-%p Find me in app/views/static_pages/dashboard.html.haml
+%h1 Dashboard
+%table.table.table-striped
+  %tr
+    %th= "Time stamp"
+    %th= "Sensor"
+    %th= "Value"
+    %th= "Unit"
+  -@sensor_data.each do |sensor_datum|
+    %tr
+      %td= sensor_datum.time_stamp
+      %td= link_to sensor_datum.sensor.label, sensor_datum.sensor
+      %td= sensor_datum.value
+      %td= sensor_datum.sensor.unit
+
