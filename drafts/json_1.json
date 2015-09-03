@@ -1,0 +1,21 @@
+{
+  "s_d": [ //Steht für sensor data
+    {
+      "_n": 1, //Steht die node/station
+      "_t": 123543332, //Steht für timestamp
+      "tsn": 24.03, //Auf dem Server einstellbares Kürzel für den Sensorennamen
+      "hsn": 63.11, //Auf dem Server einstellbares Kürzel für den Sensorennamen
+      "psn": 1024.30, //Auf dem Server einstellbares Kürzel für den Sensorennamen
+      "lsn": 143, //Auf dem Server einstellbares Kürzel für den Sensorennamen
+      "isn": 103, //Auf dem Server einstellbares Kürzel für den Sensorennamen
+      "uvn": 0 //Auf dem Server einstellbares Kürzel für den Sensorennamen
+    },
+    {
+      //Weitere Einträge wie oben
+    },
+    {
+      //Weitere Einträge wie oben
+    }
+    //...
+  ]
+}
