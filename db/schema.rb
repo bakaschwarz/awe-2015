@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150903100019) do
     t.string   "unit"
     t.string   "visualization"
     t.boolean  "active"
+    t.string   "abbrevation"
+    t.integer  "station"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -1,0 +1,33 @@
+%h1 Sensor Configuration
+%table.table.table-striped
+  %tr
+    %th= "Label"
+    %th= "Unit"
+    %th= "Sensor version"
+    %th= "Abbrevation in JSON"
+    %th= "Station Number"
+    %th= "Visualization"
+    %th= "Active?"
+    %th= ""
+  -i = 1
+  -@sensors.each do |sensor|
+    %tr
+      %td
+        %input{ type: "text", value: sensor.label}
+      %td
+        %input{ type: "text", value: sensor.unit}
+      %td= sensor.sensor
+      %td= sensor.abbrevation
+      %td= sensor.station
+      %td
+        %select{ name: "visualization"}
+          -@visualizationTypes.each do |visualizationType|
+            -if visualizationType.name == sensor.visualization
+              %option{ value: visualizationType.name, selected: true}= visualizationType.name
+            -else
+              %option{ value: visualizationType.name}= visualizationType.name
+      %td
+        %input{ type: "checkbox", name: "active", value: i, checked: sensor.active}
+    -i = i + 1
+-@visualizationTypes.each do |visualizationType|
+  = visualizationType.name
