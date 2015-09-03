@@ -91,3 +91,7 @@ SensorDatum.create!([
     value: 23.1
   },
   ])
+
+ApiToken.create!(
+            token: "asdfghjkl"
+)

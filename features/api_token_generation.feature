@@ -1,7 +1,7 @@
 Feature: API Token Generation
-  A new User gets an API token
+  A new API token gets generated
 
   Scenario:
-    When a new user is created with the email "example@example.com" and the password "asdf"
-    And he is saved with an API token in the database
+    When we create a new API token
+    And save it
     Then we can retrieve it from the database
