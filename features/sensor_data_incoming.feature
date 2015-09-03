@@ -15,3 +15,11 @@ Feature: A post request for updating the sensor database
     And it contains the correct API Token
     When I post it to the server
     Then It will be added to the database
+
+  Scenario: Making an invalid post request
+    Given there is a JSON File
+    And it contains the sensor "sensor_1" and the value "23"
+    And it contains the timestamp "1441265184" as well as the node "1"
+    And it contains an invalid api token
+    When I post it to the server
+    Then the post will be rejected

@@ -41,3 +41,11 @@ And(/^the database contains an api token$/) do
   )
   @api_token.save
 end
+
+And(/^it contains an invalid api token$/) do
+  @json_file[:api_token] = "invalidtoken"
+end
+
+Then(/^the post will be rejected$/) do
+  expect(SensorDatum.first).to be_nil
+end
