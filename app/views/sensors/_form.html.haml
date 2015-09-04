@@ -3,33 +3,34 @@
     %tr
       .field 
         %td= f.label :label
-        %td= f.text_field :label
+        %td= f.text_field :label, class: 'form-control'
     %tr
       .field
         %td= f.label :unit
-        %td= f.text_field :unit
+        %td= f.text_field :unit, class: 'form-control'
     %tr
       .field
         %td= f.label :sensor
-        %td= f.text_field :sensor
+        %td= f.text_field :sensor, class: 'form-control'
     %tr
       .field
         %td= f.label :visualization_type_id
-        %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name, include_blank: true
+        %td= f.collection_select(:visualization_type_id, VisualizationType.order(:name),:id,:name, {}, {class: 'form-control col-sm-4'})
     %tr
       .field
         %td= f.label :abbreviation
-        %td= f.text_field :abbreviation
+        %td= f.text_field :abbreviation, class: 'form-control'
     %tr
       .field
         %td= f.label :station
-        %td= f.text_field :station
+        %td= f.text_field :station, class: 'form-control'
     %tr
       .field
         %td=f.label :active
         %td= f.check_box :active
     %tr
       .actions
-      %td= f.submit
       %td
-%button.btn= link_to 'Back to sensor configuration', static_pages_wetter_config_path
+        = f.submit class: "btn btn-default"
+      %td
+%a.btn.btn-primary{href: static_pages_wetter_config_url} Back to sensor configuration
