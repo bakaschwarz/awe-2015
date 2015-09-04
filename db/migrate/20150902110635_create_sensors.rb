@@ -1,11 +1,11 @@
 class CreateSensors < ActiveRecord::Migration
   def change
     create_table :sensors do |t|
-      t.string :sensor, unique: true
-      t.string :label, null: false
+      t.string :sensor
+      t.string :label
       t.string :unit
       t.boolean :active
-      t.string :abbreviation, null: false, unique: true
+      t.string :abbreviation, null: false
       t.integer :station_id, null: false
       t.integer :visualization_type_id
 

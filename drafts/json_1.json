@@ -1,7 +1,7 @@
 {
   "s_d": [ //Steht für sensor data
     {
-      //"_n": 1, //Steht die node/station
+      "_n": 1, //Steht die node/station
       "_t": 123543332, //Steht für timestamp
       "tsn": 24.03, //Auf dem Server einstellbares Kürzel für den Sensorennamen
       "hsn": 63.11, //Auf dem Server einstellbares Kürzel für den Sensorennamen
@@ -17,6 +17,7 @@
       //Weitere Einträge wie oben
     }
     //...
-  ]
+  ],
+  "api_token": "asdasdasdasd"
 
 }
