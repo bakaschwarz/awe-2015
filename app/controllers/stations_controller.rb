@@ -1,5 +1,5 @@
-class SensorsController < ApplicationController
-  before_action :authenticate_user!, :set_sensor, only: [:show, :update, :destroy]
+class StationsController < ApplicationController
+  before_action :authenticate_user!, :set_station, only: [:show, :update, :destroy]
 
   def index
     redirect_to static_pages_wetter_config_path
@@ -12,8 +12,8 @@ class SensorsController < ApplicationController
   end
 
   def create
-    @sensor = Sensor.new(sensor_params)
-    if @sensor.save
+    @station = Station.new(station_params)
+    if @station.save
       redirect_to static_pages_wetter_config_path
     else
       #handle unsuccessful create
@@ -21,11 +21,11 @@ class SensorsController < ApplicationController
   end
 
   def new
-    @sensor = Sensor.new
+    @station = Station.new
   end
 
   def update
-    if @sensor.update(sensor_params)
+    if @station.update(station_params)
       redirect_to static_pages_wetter_config_path
     else
       # handle unsucessful update
@@ -33,22 +33,21 @@ class SensorsController < ApplicationController
   end
 
   def destroy
-    @sensor.destroy
+    @station.destroy
     respond_to do |format|
-      format.html { redirect_to static_pages_wetter_config_path, notice: 'Sensor was successfully destroyed.' }
+      format.html { redirect_to static_pages_wetter_config_path, notice: 'Station was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_sensor
-      @sensor = Sensor.find(params[:id])
+    def set_station
+      @station = Station.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def sensor_params
-      params.require(:sensor).permit(:label, :unit, :visualization_type_id, :sensor, :active, :abbrevation, :station_id)
+    def station_params
+      params.require(:station).permit(:label, :description)
     end
-
 end

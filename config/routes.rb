@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sensors
+  resources :stations
 
   root 'static_pages#dashboard'
 

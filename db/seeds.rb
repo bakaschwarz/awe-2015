@@ -20,7 +20,7 @@ Sensor.create!([
     visualization_type_id: 1,
     sensor: "UV-2421-mega",
     abbrevation: "UV",
-    station: 1
+    station_id: 1
   }, 
   {
     label: "Temperatur Luft",
@@ -29,7 +29,7 @@ Sensor.create!([
     visualization_type_id: 1,
     sensor: "temp-1000",
     abbrevation: "T1",
-    station: 1
+    station_id: 1
   },
   {
     label: "Temperatursensor Strahlung",
@@ -38,7 +38,27 @@ Sensor.create!([
     visualization_type_id: 2,
     sensor: "tempX-2200",
     abbrevation: "T2",
-    station: 1
+    station_id: 1
+  },
+  {
+    label: "Temperatur Garten",
+    unit: "°C",
+    active: true,
+    visualization_type_id: 1,
+    sensor: "temp-1000",
+    abbrevation: "TG",
+    station_id: 2
+  },
+  ])
+
+Station.create!([
+  {
+    label: "Küche",
+    description: "Station in der Küche mit voller Sensorausstattung"
+  }, 
+  {
+    label: "Garten",
+    description: "Station im Garten bei Apfelbaum (Prototyp)"
   }
   ])
 
@@ -90,4 +110,19 @@ SensorDatum.create!([
     sensor_id: 2,
     value: 23.1
   },
+    {
+    time_stamp: 123545332,
+    sensor_id: 4,
+    value: 8.2
+  },
+  {
+    time_stamp: 123546332,
+    sensor_id: 4,
+    value: 8.3
+  },
+  {
+    time_stamp: 123547332,
+    sensor_id: 4,
+    value: 8.6
+  }
   ])

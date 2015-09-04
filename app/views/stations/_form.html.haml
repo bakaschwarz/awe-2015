@@ -1,0 +1,15 @@
+= form_for(@station) do |f|
+  %table.table.table-striped
+    %tr
+      .field 
+        %td= f.label :label
+        %td= f.text_field :label
+    %tr
+      .field
+        %td= f.label :description
+        %td= f.text_area :description, :rows => 5
+    %tr
+      .actions
+      %td= f.submit
+      %td
+%button.btn= link_to 'Back to sensor configuration', static_pages_wetter_config_path

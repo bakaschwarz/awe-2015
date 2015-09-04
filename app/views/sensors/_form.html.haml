@@ -15,15 +15,15 @@
     %tr
       .field
         %td= f.label :visualization_type_id
-        %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name, include_blank: true
+        %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name
     %tr
       .field
         %td= f.label :abbrevation
         %td= f.text_field :abbrevation
     %tr
       .field
-        %td= f.label :station
-        %td= f.text_field :station
+        %td= f.label :station_id
+        %td= f.collection_select :station_id, Station.order(:label),:id,:label
     %tr
       .field
         %td=f.label :active
