@@ -17,17 +17,17 @@ And(/^it contains the sensor "([^"]*)" and the value "([^"]*)"$/) do |arg1, arg2
   @json_file[:value] = arg2
 end
 
-And(/^it contains the timestamp "([^"]*)" as well as the node "([^"]*)"$/) do |arg1, arg2|
-  @json_file[:timestamp] = arg1.to_i
-  @json_file[:node] = arg2.to_i
+And(/^it contains the timestamp "([^"]*)"$/) do |arg1|
+  @json_file[:time_stamp] = arg1.to_i
+  #@json_file[:node] = arg2.to_i
 end
 
 And(/^it contains the correct API Token$/) do
-  @json_file[:api_token] = @api_token.token
+  # Nothing more; Now directly in post
 end
 
 When(/^I post it to the server$/) do
-  page.driver.post("/weather_update/create", :weather_update => @json_file)
+  page.driver.post("/weather_update/create", {:s_d => [@json_file], :api_token => @api_token.token})
 end
 
 Then(/^It will be added to the database$/) do
@@ -42,10 +42,11 @@ And(/^the database contains an api token$/) do
   @api_token.save
 end
 
-And(/^it contains an invalid api token$/) do
-  @json_file[:api_token] = "invalidtoken"
-end
-
 Then(/^the post will be rejected$/) do
   expect(SensorDatum.first).to be_nil
+end
+
+When(/^I post it to the server with the invalid token "([^"]*)"$/) do |arg|
+  page.driver.post("/weather_update/create", {:s_d => [@json_file], :api_token => arg})
+
 end

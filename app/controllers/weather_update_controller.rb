@@ -1,10 +1,13 @@
 class WeatherUpdateController < ApplicationController
 
   def create
-    token = params[:weather_update][:api_token]
+    token = params[:api_token]
     if token == ApiToken.first.token
-      sensor_datum = SensorDatum.new(sensor_data_params)
-      sensor_datum.save
+      sensor_data_params.each do |data_set|
+        data_set = data_set.permit(:timestamp, :sensor_id, :value)
+        sensor_datum = SensorDatum.new(data_set)
+        sensor_datum.save
+      end
     render status: 204, text: ""
     else
       render status: 403, text: ""
@@ -13,6 +16,6 @@ class WeatherUpdateController < ApplicationController
 
   private
     def sensor_data_params
-      params.require(:weather_update).permit(:node, :sensor_id, :value, :timestamp)
+      params.require(:s_d)
     end
 end
