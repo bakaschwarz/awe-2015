@@ -1,6 +1,8 @@
 
 When(/^we create a new API token$/) do
-  @api_token = ApiToken.new
+  @api_token = ApiToken.new(
+                           token: SecureRandom.hex
+  )
 end
 
 And(/^save it$/) do

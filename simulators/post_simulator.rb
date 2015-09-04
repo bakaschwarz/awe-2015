@@ -55,7 +55,7 @@ require "json"
 require "ipaddr"
 require "net/http"
 
-LOOP_IN_SEC = 1
+LOOP_IN_SEC = 5
 
 URL = URI("http://localhost:3000/weather_update/create")
 
@@ -68,10 +68,11 @@ SENSOR_ABBREVIATIONS = %w[
 while true do
   # Create JSON File
   update_data = {
+      "_n"                    => 1,
+      "_t"                    => Time.now.to_i,
       SENSOR_ABBREVIATIONS[0] => rand(1..100),
       SENSOR_ABBREVIATIONS[1] => rand(20..25),
-      SENSOR_ABBREVIATIONS[2] => rand(10..12),
-      "_t"                    => Time.now.to_i
+      SENSOR_ABBREVIATIONS[2] => rand(10..12)
   }
   json_file = {"s_d" => [update_data], "api_token" => "asdfghjkl"}.to_json
   # Prepare Connection
