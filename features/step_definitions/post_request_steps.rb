@@ -15,12 +15,11 @@ Given(/^there is a JSON File$/) do
 end
 
 And(/^it contains the sensor abbreviation "([^"]*)" and the value "([^"]*)"$/) do |arg1, arg2|
-  @json_file[:abbreviation] = arg1
-  @json_file[:value] = arg2
+  @json_file[arg1.to_sym] = arg2
 end
 
 And(/^it contains the timestamp "([^"]*)"$/) do |arg1|
-  @json_file[:time_stamp] = arg1.to_i
+  @json_file[:_t] = arg1
 end
 
 And(/^it contains the correct API Token$/) do

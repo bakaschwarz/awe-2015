@@ -18,8 +18,8 @@
         %td= f.collection_select :visualization_type_id, VisualizationType.order(:name),:id,:name, include_blank: true
     %tr
       .field
-        %td= f.label :abbrevation
-        %td= f.text_field :abbrevation
+        %td= f.label :abbreviation
+        %td= f.text_field :abbreviation
     %tr
       .field
         %td= f.label :station
