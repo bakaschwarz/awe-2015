@@ -20,20 +20,20 @@ ActiveRecord::Schema.define(version: 20150903170555) do
   end
 
   create_table "sensor_data", force: :cascade do |t|
-    t.integer  "time_stamp", limit: 8
-    t.integer  "sensor_id"
-    t.float    "value"
+    t.integer  "time_stamp", limit: 8, null: false
+    t.integer  "sensor_id",            null: false
+    t.float    "value",                null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
   create_table "sensors", force: :cascade do |t|
     t.string   "sensor"
-    t.string   "label"
+    t.string   "label",                 null: false
     t.string   "unit"
     t.boolean  "active"
-    t.string   "abbrevation"
-    t.integer  "station"
+    t.string   "abbreviation",          null: false
+    t.integer  "station",               null: false
     t.integer  "visualization_type_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

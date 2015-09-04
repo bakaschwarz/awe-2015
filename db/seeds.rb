@@ -19,7 +19,7 @@ Sensor.create!([
     active: true,
     visualization_type_id: 1,
     sensor: "UV-2421-mega",
-    abbrevation: "UV",
+    abbreviation: "UV",
     station: 1
   }, 
   {
@@ -28,7 +28,7 @@ Sensor.create!([
     active: true,
     visualization_type_id: 1,
     sensor: "temp-1000",
-    abbrevation: "T1",
+    abbreviation: "T1",
     station: 1
   },
   {
@@ -37,7 +37,7 @@ Sensor.create!([
     active: false,
     visualization_type_id: 2,
     sensor: "tempX-2200",
-    abbrevation: "T2",
+    abbreviation: "T2",
     station: 1
   }
   ])
