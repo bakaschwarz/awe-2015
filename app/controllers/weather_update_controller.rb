@@ -6,13 +6,26 @@ class WeatherUpdateController < ApplicationController
       sensor_data_params.each do |data_set|
         data_set.each_pair do |sensor, value|
           sensor_id = nil
+
+          #Create new Station if it is non existent
+          begin
+            station_id = Station.find(data_set["_n"]).id
+          rescue
+            new_station = Station.new(
+                                     id: data_set["_n"]
+            )
+            new_station.save
+            station_id = new_station.id
+          end
+
+
           # Create new Sensor if it is non existent
           begin
             sensor_id = Sensor.find_by_abbreviation(sensor).id
           rescue
             new_sensor = Sensor.new(
                 abbreviation: sensor,
-                station_id: data_set["_n"]
+                station_id: station_id
             )
             new_sensor.save
             sensor_id = new_sensor.id
