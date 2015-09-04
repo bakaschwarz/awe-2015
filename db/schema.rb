@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150904091327) do
 
   create_table "sensors", force: :cascade do |t|
     t.string   "sensor"
-    t.string   "label",                 null: false
+    t.string   "label"
     t.string   "unit"
     t.boolean  "active"
     t.string   "abbreviation",          null: false

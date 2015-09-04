@@ -20,6 +20,7 @@ end
 
 And(/^it contains the timestamp "([^"]*)"$/) do |arg1|
   @json_file[:_t] = arg1
+  @json_file[:_n] = 1
 end
 
 And(/^it contains the correct API Token$/) do
