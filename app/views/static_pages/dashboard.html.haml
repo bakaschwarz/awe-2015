@@ -1,13 +1,32 @@
 %h1 Dashboard
-%table.table.table-striped
-  %tr
-    %th= "Time stamp"
-    %th= "Sensor"
-    %th= "Value"
-    %th= "Unit"
-  -@sensor_data.each do |sensor_datum|
+-@stations.each do |station|
+  %h2= station.label
+  %table.table.table-striped
     %tr
-      %td= DateTime.strptime(sensor_datum.time_stamp.to_s,'%s')
-      %td= link_to sensor_datum.sensor.label, sensor_datum.sensor
-      %td= sensor_datum.value
-      %td= sensor_datum.sensor.unit
+      %th= "Time stamp"
+      -station.sensors.each do |sensor|
+        %th
+          = sensor.label
+          = "["
+          = sensor.unit
+          = "]"
+    %tr
+      -current_time_stamp = @sensor_data[1].time_stamp
+      -all_sensor_data_this_station = nil
+      -station.sensors.each do |sensor|
+        -if all_sensor_data_this_station == nil
+          -all_sensor_data_this_station = sensor.sensor_data
+        -else
+          -all_sensor_data_this_station.push(sensor.sensor_data)
+      -sd_distinct_time_steps = all_sensor_data_this_station.select("distinct(time_stamp)")
+      -sd_distinct_time_steps.each do |sd|
+        -#= sd.time_stamp
+        -current_time_stamp = sd.time_stamp
+        %tr
+          %td= DateTime.strptime(current_time_stamp.to_s,'%s')
+          -station.sensors.each do |sensor|
+            %td
+              -if @sensor_data.where(time_stamp: current_time_stamp, sensor_id: sensor.id).first == nil
+                = "N/A"
+              -else
+                = @sensor_data.where(time_stamp: current_time_stamp, sensor_id: sensor.id).first.value

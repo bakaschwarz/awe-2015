@@ -14,6 +14,7 @@ User.create!(
 
 Sensor.create!([
   {
+    id: 1,
     label: "UV-Licht vorne",
     unit: "lux",
     active: true,
@@ -23,6 +24,7 @@ Sensor.create!([
     station_id: 1
   }, 
   {
+    id: 2,
     label: "Temperatur Luft",
     unit: "°C",
     active: true,
@@ -32,6 +34,7 @@ Sensor.create!([
     station_id: 1
   },
   {
+    id: 3,
     label: "Temperatursensor Strahlung",
     unit: "°C",
     active: false,
@@ -41,6 +44,7 @@ Sensor.create!([
     station_id: 1
   },
   {
+    id: 4,
     label: "Temperatur Garten",
     unit: "°C",
     active: true,
@@ -111,6 +115,21 @@ SensorDatum.create!([
     value: 23.1
   },
     {
+    time_stamp: 123544332,
+    sensor_id: 3,
+    value: 16.9
+  },
+  {
+    time_stamp: 123545332,
+    sensor_id: 3,
+    value: 18.2
+  },
+  {
+    time_stamp: 123546332,
+    sensor_id: 3,
+    value: 19.2
+  },
+  {
     time_stamp: 123545332,
     sensor_id: 4,
     value: 8.2
