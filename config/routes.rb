@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :sensors
+  resources :stations
 
   root 'static_pages#dashboard'
 
   get 'static_pages/dashboard'
+  get 'static_pages/dashboard_basic'
   get 'static_pages/wetter_config'
   
   post 'weather_update/create' => 'weather_update#create'

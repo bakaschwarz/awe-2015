@@ -5,7 +5,7 @@
     %th= "Unit"
     %th= "Sensor version"
     %th= "Abbreviation in JSON"
-    %th= "Station number"
+    %th= "Station"
     %th= "Visualization"
     %th= "Active?"
     %th= ""
@@ -15,7 +15,7 @@
       %td= sensor.unit
       %td= sensor.sensor
       %td= sensor.abbreviation
-      %td= sensor.station
+      %td= link_to sensor.station.label, sensor.station
       %td= sensor.visualization_type.name
       %td
         %input{ type: "checkbox", name: "active", checked: sensor.active, disabled: true}
@@ -23,3 +23,4 @@
         = link_to "Edit", sensor
         = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure?' }
 %a.btn.btn-primary{href: new_sensor_url} Create new sensor
+%a.btn.btn-primary{href: new_station_url} Create new station

@@ -4,7 +4,7 @@ And(/^the database contains a sensor abbreviation "([^"]*)", with the name "([^"
                       sensor: arg2,
                       label: arg3,
                       unit: arg4,
-                      station: 1
+                      station_id: 1
   )
   @sensor.save
   expect(Sensor.first).to_not be_nil
