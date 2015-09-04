@@ -13,6 +13,9 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 
 group :development, :test do
   gem 'byebug'

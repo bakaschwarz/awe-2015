@@ -80,67 +80,67 @@ VisualizationType.create!([
 
 SensorDatum.create!([
   {
-    time_stamp: 123543332,
+    time_stamp: 1989170556,
     sensor_id: 1,
     value: 13
   },
   {
-    time_stamp: 123544332,
+    time_stamp: 1989171556,
     sensor_id: 1,
     value: 16
   },
   {
-    time_stamp: 123545332,
+    time_stamp: 1989172556,
     sensor_id: 1,
     value: 18
   },
   {
-    time_stamp: 123546332,
+    time_stamp: 1989173556,
     sensor_id: 1,
     value: 19
   },
   {
-    time_stamp: 123545332,
+    time_stamp: 1989173556,
     sensor_id: 2,
     value: 23.2
   },
   {
-    time_stamp: 123546332,
+    time_stamp: 1989174556,
     sensor_id: 2,
     value: 23.3
   },
   {
-    time_stamp: 123547332,
+    time_stamp: 1989175556,
     sensor_id: 2,
     value: 23.1
   },
     {
-    time_stamp: 123544332,
+    time_stamp: 1989170556,
     sensor_id: 3,
     value: 16.9
   },
   {
-    time_stamp: 123545332,
+    time_stamp: 1989171556,
     sensor_id: 3,
     value: 18.2
   },
   {
-    time_stamp: 123546332,
+    time_stamp: 1989172556,
     sensor_id: 3,
     value: 19.2
   },
   {
-    time_stamp: 123545332,
+    time_stamp: 1989173556,
     sensor_id: 4,
     value: 8.2
   },
   {
-    time_stamp: 123546332,
+    time_stamp: 1989172556,
     sensor_id: 4,
     value: 8.3
   },
   {
-    time_stamp: 123547332,
+    time_stamp: 1989174556,
     sensor_id: 4,
     value: 8.6
   }
