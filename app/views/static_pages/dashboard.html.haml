@@ -9,8 +9,7 @@
             = station.label
       %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
         %div.panel-body
-          -station.sensors.each do |sensor|
-            %div{id: "chart-#{sensor.id}"}= render_chart (get_line_chart_by_sensor sensor), "chart-#{sensor.id}"
+          %div{id: "chart-#{station.id}"}= render_chart (get_line_chart_by_station station, time_stamp_hash), "chart-#{station.id}"
           %table.table.table-striped.dashboard-table.table-bordered
             %tr
               %th= "Time Stamp"
