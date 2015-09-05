@@ -1,23 +1,30 @@
-%h1 Dashboard
--station_hash = ordered_timestamps_for_stations
--station_hash.each_pair do |station, time_stamp_hash|
-  %h2= station.label
-  %table.table.table-striped
-    %tr
-      %th= "Time stamp"
-      -station.sensors.each do |sensor|
-        %th
-          = sensor.label
-          = "["
-          = sensor.unit
-          = "] - id: "
-          = sensor.id
-    -time_stamp_hash.each_pair do |time_stamp, value_hash|
-      %tr
-        %td= DateTime.strptime(time_stamp.to_s,'%s')
-        -station.sensors.each do |sensor|
-          %td
-            -if value_hash[sensor.id] == nil
-              = "N/A"
-            -else
-              = value_hash[sensor.id]
+%h1.centered-title Dashboard
+%div.panel-group#accordion
+  -station_hash = ordered_timestamps_for_stations
+  -station_hash.each_pair do |station, time_stamp_hash|
+    %div.panel.panel-default
+      %div.panel-heading
+        %h4.panel-title
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapse#{station.id}"}
+            = station.label
+      %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
+        %div.panel-body
+          %table.table.table-striped.dashboard-table.table-bordered
+            %tr
+              %th= "Time stamp"
+              -station.sensors.each do |sensor|
+                %th
+                  = sensor.label
+                  = "["
+                  = sensor.unit
+                  = "] - id: "
+                  = sensor.id
+            -time_stamp_hash.each_pair do |time_stamp, value_hash|
+              %tr
+                %td= DateTime.strptime(time_stamp.to_s,'%s')
+                -station.sensors.each do |sensor|
+                  %td
+                    -if value_hash[sensor.id] == nil
+                      = "N/A"
+                    -else
+                      = value_hash[sensor.id]
