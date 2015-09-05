@@ -15,4 +15,9 @@ class StaticPagesController < ApplicationController
     @sensors = Sensor.all
   end
 
+  def line_chart
+    @sensor_data = SensorDatum.all
+    @sensors = Sensor.all
+  end
+
 end

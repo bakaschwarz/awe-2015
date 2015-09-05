@@ -11,6 +11,10 @@ gem 'sdoc', group: :doc
 gem 'haml'
 gem 'haml-rails'
 gem 'devise'
+gem 'bootstrap-sass'
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 #gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'sass-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

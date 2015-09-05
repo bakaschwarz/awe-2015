@@ -1,0 +1,10 @@
+= javascript_include_tag "//www.google.com/jsapi", "chartkick"
+%h1 Line chart
+-@sensors.each do |sensor|
+  -hashed_data = Hash[ sensor.sensor_data.map{ |sd| [sd.time_stamp,sd.value] } ]
+  %h2
+    = sensor.label
+    = "["
+    = sensor.unit
+    = "]"
+  = line_chart hashed_data
