@@ -2,7 +2,7 @@ module StaticPagesHelper
 
   def ordered_timestamps_for_stations
     sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp DESC").all
-    ordered_stamps = Hash.new
+    ordered_stamps = {}
     sensor_data_unsorted.each do |sensor_data|
       station = Station.find(Sensor.find(sensor_data[:sensor_id]).station_id)
       ordered_stamps[station] ||= Hash.new
