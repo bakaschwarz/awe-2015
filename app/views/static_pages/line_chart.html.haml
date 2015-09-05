@@ -1,6 +1,10 @@
 = javascript_include_tag "//www.google.com/jsapi", "chartkick"
 %h1 Line chart
-= pie_chart({"Football" => 10, "Basketball" => 5})
-= line_chart({20.day.ago => 5, 1368174456 => 4, 1989174556 => 1, "2013-05-07 00:00:00 UTC" => 7})
--hashed_data = Hash[ @sensor_data.map{ |sd| [sd.time_stamp,sd.value] } ]
-= line_chart hashed_data
+-@sensors.each do |sensor|
+  -hashed_data = Hash[ sensor.sensor_data.map{ |sd| [sd.time_stamp,sd.value] } ]
+  %h2
+    = sensor.label
+    = "["
+    = sensor.unit
+    = "]"
+  = line_chart hashed_data
