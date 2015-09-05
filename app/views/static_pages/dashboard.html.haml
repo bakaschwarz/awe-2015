@@ -9,10 +9,11 @@
             = station.label
       %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
         %div.panel-body
-          = GoogleVisualr::DataTable.new
+          -station.sensors.each do |sensor|
+            %div{id: "chart-#{sensor.id}"}= render_chart (get_line_chart_by_sensor sensor), "chart-#{sensor.id}"
           %table.table.table-striped.dashboard-table.table-bordered
             %tr
-              %th= "Time stamp"
+              %th= "Time Stamp"
               -station.sensors.each do |sensor|
                 %th
                   = sensor.label
@@ -22,7 +23,7 @@
                   = sensor.id
             -time_stamp_hash.each_pair do |time_stamp, value_hash|
               %tr
-                %td= DateTime.strptime(time_stamp.to_s,'%s')
+                %td= Time.at(time_stamp).to_formatted_s(:db)
                 -station.sensors.each do |sensor|
                   %td
                     -if value_hash[sensor.id] == nil

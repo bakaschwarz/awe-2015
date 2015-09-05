@@ -60,9 +60,7 @@ LOOP_IN_SEC = 5
 URL = URI("http://localhost:3000/weather_update/create")
 
 SENSOR_ABBREVIATIONS = %w[
-  UV
   T1
-  T2
 ]
 
 while true do
@@ -70,9 +68,7 @@ while true do
   update_data = {
       "_n"                    => 1,
       "_t"                    => Time.now.to_i,
-      SENSOR_ABBREVIATIONS[0] => rand(1..100),
-      SENSOR_ABBREVIATIONS[1] => rand(20..25),
-      SENSOR_ABBREVIATIONS[2] => rand(10..12)
+      SENSOR_ABBREVIATIONS[0] => `cat /sys/class/thermal/thermal_zone0/temp`[0..1],
   }
   json_file = {"s_d" => [update_data], "api_token" => "asdfghjkl"}.to_json
   # Prepare Connection

@@ -13,13 +13,21 @@ module StaticPagesHelper
   end
 
 
-  def get_line_chart_by_unit(time_stamp_hash)
+  def get_line_chart_by_sensor(sensor, options = {start: 0, rows: 5})
     data_table = GoogleVisualr::DataTable.new
-    Sensor.all.each do |sensor|
-      data_table.new_column 'number', (sensor.unit ||= "N/A")
+    data_table.new_column('datetime', 'Time')
+    data_table.new_column('number', sensor.label)
+
+    counter = 0
+    sensor.sensor_data.each do |sensor_datum|
+      if sensor_datum.time_stamp > options[:start]
+        data_table.add_rows(1)
+        data_table.set_cell(counter, 0, Time.at(sensor_datum.time_stamp).to_datetime)
+        data_table.set_cell(counter, 1, sensor_datum.value)
+        counter += 1
+      end
     end
-    data_table.add_rows(10)
-    opts   = { :width => 400, :height => 240, :title => 'Company Performance', :legend => 'bottom' }
-    @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
+    opts   = {:width => "95%", :height => "15%", :title => "#{sensor.label} [#{sensor.unit}]", :legend => 'bottom' }
+    GoogleVisualr::Interactive::LineChart.new(data_table,opts)
   end
 end

@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
   end
 
   def wetter_config
+    @stations = Station.all
     @sensors = Sensor.all
   end
 

@@ -1,26 +1,43 @@
-%h1 Sensor Configuration
-%table.table.table-striped
-  %tr
-    %th= "Label"
-    %th= "Unit"
-    %th= "Sensor version"
-    %th= "Abbreviation in JSON"
-    %th= "Station"
-    %th= "Visualization"
-    %th= "Active?"
-    %th= ""
-  -@sensors.each do |sensor|
+%h1.centered-title Configuration
+%div.dashboard-table
+  %h2 Station Configuration
+  %table.table.table-striped.table-bordered
     %tr
-      %td= sensor.label
-      %td= sensor.unit
-      %td= sensor.sensor
-      %td= sensor.abbreviation
-      %td= link_to sensor.station.label, sensor.station
-      %td= sensor.visualization_type.name
-      %td
-        %input{ type: "checkbox", name: "active", checked: sensor.active, disabled: true}
-      %td
-        = link_to "Edit", sensor
-        = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure?' }
-%a.btn.btn-primary{href: new_sensor_url} Create new sensor
-%a.btn.btn-primary{href: new_station_url} Create new station
+      %th= "Label"
+      %th= "Description"
+      %th= "Options"
+    -@stations.each do |station|
+      %tr
+        %td= station.label
+        %td= station.description
+        %td
+          = link_to "Edit", station
+          = link_to "Delete", station, method: :delete, data: { confirm: 'Are you sure?' }
+  %a.btn.btn-primary{href: new_station_url} Create new station
+%br
+%div.dashboard-table
+  %h2 Sensor Configuration
+  %table.table.table-striped.table-bordered
+    %tr
+      %th= "Label"
+      %th= "Unit"
+      %th= "Sensor version"
+      %th= "Abbreviation in JSON"
+      %th= "Station"
+      %th= "Visualization"
+      %th= "Active?"
+      %th= "Options"
+    -@sensors.each do |sensor|
+      %tr
+        %td= sensor.label
+        %td= sensor.unit
+        %td= sensor.sensor
+        %td= sensor.abbreviation
+        %td= link_to sensor.station.label, sensor.station
+        %td= sensor.visualization_type.name
+        %td
+          %input{ type: "checkbox", name: "active", checked: sensor.active, disabled: true}
+        %td
+          = link_to "Edit", sensor
+          = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure?' }
+  %a.btn.btn-primary{href: new_sensor_url} Create new sensor
