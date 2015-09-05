@@ -273,6 +273,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  google_visualr
   guard
   guard-cucumber
   haml

@@ -9,6 +9,7 @@
             = station.label
       %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
         %div.panel-body
+          = GoogleVisualr::DataTable.new
           %table.table.table-striped.dashboard-table.table-bordered
             %tr
               %th= "Time stamp"

@@ -11,4 +11,15 @@ module StaticPagesHelper
     end
     ordered_stamps
   end
+
+
+  def get_line_chart_by_unit(time_stamp_hash)
+    data_table = GoogleVisualr::DataTable.new
+    Sensor.all.each do |sensor|
+      data_table.new_column 'number', (sensor.unit ||= "N/A")
+    end
+    data_table.add_rows(10)
+    opts   = { :width => 400, :height => 240, :title => 'Company Performance', :legend => 'bottom' }
+    @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
+  end
 end
