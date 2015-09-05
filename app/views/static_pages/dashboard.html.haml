@@ -4,7 +4,7 @@
   -station_hash.each_pair do |station, time_stamp_hash|
     %div.panel.panel-default
       %div.panel-heading
-        %h4.panel-title
+        %h2.panel-title
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapse#{station.id}"}
             = station.label
       %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
