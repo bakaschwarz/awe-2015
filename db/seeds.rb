@@ -18,11 +18,41 @@ Sensor.create!([
     label: "Laptop Temperatur",
     unit: "°C",
     active: true,
-    visualization_type_id: 1,
+    visualization_type_id: 2,
     sensor: "temp-1000",
     abbreviation: "T1",
     station_id: 1
-  }
+  },
+  {
+    id: 2,
+    label: "Thermometer",
+    unit: "°C",
+    active: true,
+    visualization_type_id: 2,
+    sensor: "tempX2000",
+    abbreviation: "inti5",
+    station_id: 1
+  },
+  {
+    id: 3,
+    label: "Lichtsensor",
+    unit: "lux",
+    active: true,
+    visualization_type_id: 3,
+    sensor: "light_5x",
+    abbreviation: "l1",
+    station_id: 1
+  },
+  {
+    id: 4,
+    label: "Licht Terasse",
+    unit: "lux",
+    active: true,
+    visualization_type_id: 2,
+    sensor: "light_5x",
+    abbreviation: "l2",
+    station_id: 2
+  } 
   ])
 
 Station.create!([
@@ -38,13 +68,20 @@ Station.create!([
 
 VisualizationType.create!([
   {
-    name: "Punktediagramm"
+    name: "Scatter",
+    chart_keyword: "scatter"
   },
   {
-    name: "Liniendiagramm"
+    name: "Line",
+    chart_keyword: "spline"
   },
   {
-    name: "Balkendiagramm"
+    name: "Bar",
+    chart_keyword: "column"
+  },
+  {
+    name: "Area",
+    chart_keyword: "areaspline"
   }
   ])
 

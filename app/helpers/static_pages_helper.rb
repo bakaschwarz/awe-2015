@@ -54,7 +54,7 @@ module StaticPagesHelper
       end
       new_series = "{
       name: '#{sensor.label + " [" + sensor.unit + "]"}',
-      type: 'spline',
+      type: '#{sensor.visualization_type.chart_keyword}',
       yAxis: #{unit_sensor_hash[sensor.unit]},
       data: [#{sensor_series_data.join(', ')}],
       tooltip: {

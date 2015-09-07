@@ -20,8 +20,7 @@
                   = sensor.label
                   = "["
                   = sensor.unit
-                  = "] - id: "
-                  = sensor.id
+                  = "]"
             -time_stamp_hash.each_pair do |time_stamp, value_hash|
               %tr
                 %td= Time.at(time_stamp).to_formatted_s(:db)
