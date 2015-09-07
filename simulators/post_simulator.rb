@@ -55,15 +55,21 @@ require "json"
 require "ipaddr"
 require "net/http"
 
-LOOP_IN_SEC = 5
+LOOP_IN_SEC = 10
 
 URL = URI("http://localhost:3000/weather_update/create")
 
 SENSOR_ABBREVIATIONS = %w[
-  T1
-  inti5
+  t0
+  t1
+  f1
+  t2
+  t3
+  h0
+  p0
+  l0
   l1
-  l3
+  l2
 ]
 
 while true do
@@ -71,16 +77,24 @@ while true do
   update_data = {
       "_n"                    => 1,
       "_t"                    => Time.now.to_i,
-      SENSOR_ABBREVIATIONS[0] => rand(20..25),#{}`cat /sys/class/thermal/thermal_zone0/temp`[0..1],
-      SENSOR_ABBREVIATIONS[1] => rand(40..50),
-      SENSOR_ABBREVIATIONS[2] => rand(14..18),
-      SENSOR_ABBREVIATIONS[3] => rand(16..22)
+      SENSOR_ABBREVIATIONS[0] => `cat /sys/class/thermal/thermal_zone0/temp`[0..1],
+      SENSOR_ABBREVIATIONS[1] => rand(50..54),
+      SENSOR_ABBREVIATIONS[2] => rand(285..300),
+      SENSOR_ABBREVIATIONS[3] => rand(18..20),
+      SENSOR_ABBREVIATIONS[4] => rand(24..25),
+      SENSOR_ABBREVIATIONS[5] => rand(60..62),
+      SENSOR_ABBREVIATIONS[6] => 1012,
+      SENSOR_ABBREVIATIONS[7] => rand(16..18),
+      SENSOR_ABBREVIATIONS[8] => rand(10..13),
+      SENSOR_ABBREVIATIONS[9] => rand(17..22)
+
   }
+
   json_file = {"s_d" => [update_data], "api_token" => "asdfghjkl"}.to_json
   # Prepare Connection
   target_website ||= Net::HTTP.new(URL.host, URL.port).tap {|http|
-    http.open_timeout = 1
-    http.read_timeout = 1
+    http.open_timeout = 2
+    http.read_timeout = 2
   }
   post_request = Net::HTTP::Post.new URL
   post_request.body = json_file
