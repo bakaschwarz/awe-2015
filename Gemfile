@@ -12,13 +12,11 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'chartkick'
-gem 'groupdate'
 gem 'active_median'
 gem 'therubyracer'
 gem 'sass-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
-gem "highcharts-rails", "~> 3.0.0"
+gem 'highcharts-rails', '~> 3.0.0'
 
 group :development, :test do
   gem 'byebug'
@@ -37,9 +35,6 @@ group :development, :test do
 end
 
 group :test do
-  #gem 'minitest-reporters'
-  #gem 'mini_backtrace'
-  #gem 'guard-minitest'
   gem 'guard'
   gem 'guard-cucumber'
 end
