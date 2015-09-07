@@ -1,13 +1,5 @@
 class SensorsController < ApplicationController
   before_action :authenticate_user!, :set_sensor, only: [:show, :update, :destroy]
-  before_save :default_values
-
-  def default_values
-    self.visualization_type_id ||= VisualizationTypes.first.id
-    self.label = "N/A"
-    self.unit = "N/A"
-    self.sensor = "N/A"
-  end
 
   def index
     redirect_to static_pages_wetter_config_path

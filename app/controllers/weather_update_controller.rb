@@ -13,7 +13,9 @@ class WeatherUpdateController < ApplicationController
               station_id = Station.find(data_set["_n"]).id
             rescue
               new_station = Station.new(
-                                       id: data_set["_n"]
+                                       id: data_set["_n"],
+                                       description: "N/A",
+                                       label: "N/A"
               )
               new_station.save
               station_id = new_station.id
@@ -26,7 +28,11 @@ class WeatherUpdateController < ApplicationController
             rescue
               new_sensor = Sensor.new(
                   abbreviation: sensor,
-                  station_id: station_id
+                  station_id: station_id,
+                  visualization_type_id: VisualizationType.first.id,
+                  label: "N/A",
+                  unit: "N/A",
+                  sensor: "N/A"
               )
               new_sensor.save
               sensor_id = new_sensor.id
