@@ -1,7 +1,9 @@
 %h1.centered-title Dashboard
 %div.panel-group#accordion
-  -station_hash = ordered_timestamps_for_stations
-  -station_hash.each_pair do |station, time_stamp_hash|
+  -@station_hash = ordered_timestamps_for_stations
+  -@station_hash.each_pair do |station, time_stamp_hash|
+    -@station = station
+    -@time_stamp_hash = time_stamp_hash
     %div.panel.panel-default
       %div.panel-heading
         %h2.panel-title
@@ -9,7 +11,7 @@
             = station.label
       %div{id: "collapse#{station.id}", class: "panel-collapse collapse in"}
         %div.panel-body
-          %div{id: "chart-#{station.id}"}= render_chart (get_line_chart_by_station station, time_stamp_hash), "chart-#{station.id}"
+          =render 'sensor_charts'
           %table.table.table-striped.dashboard-table.table-bordered
             %tr
               %th= "Time Stamp"

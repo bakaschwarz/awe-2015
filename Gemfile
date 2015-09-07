@@ -18,7 +18,7 @@ gem 'active_median'
 gem 'therubyracer'
 gem 'sass-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
-gem 'google_visualr'
+gem "highcharts-rails", "~> 3.0.0"
 
 group :development, :test do
   gem 'byebug'
