@@ -1,6 +1,8 @@
 :javascript
   $(document).ready(function() {
     $('#filter-btn').click(function() {
-      $('#filter_reload').load('/static_pages/reload_dashboard', );
+      var filter_from = $('#filter_from').val();
+      var filter_to = $('#filter_to').val();
+      $('#filter_reload').load('/static_pages/reload_dashboard', { filter_from: filter_from, filter_to: filter_to });
     });
   });
