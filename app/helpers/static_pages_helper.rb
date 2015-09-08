@@ -1,7 +1,7 @@
 module StaticPagesHelper
 
-  def ordered_timestamps_for_stations(options = {start: 0, end: Time.now.to_i})
-    sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp ASC").where(time_stamp: options[:start]..options[:end])
+  def ordered_timestamps_for_stations(options = {from: 0, to: Time.now.to_i})
+    sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp ASC").where(time_stamp: options[:from]..options[:to])
     ordered_stamps = {}
     sensor_data_unsorted.each do |sensor_data|
       station = Station.find(Sensor.find(sensor_data[:sensor_id]).station_id)
@@ -49,7 +49,7 @@ module StaticPagesHelper
       sensor_series_data = []
       time_stamp_hash.each_pair do |time_stamp, value_pairs|
         unless value_pairs[sensor.id].nil?
-          sensor_series_data.push "["+ (time_stamp*1000+7200*1000).to_s + ", " + value_pairs[sensor.id].to_s + "]"
+          sensor_series_data.push "["+ (Time.at(time_stamp).localtime.to_i).to_s + ", " + value_pairs[sensor.id].to_s + "]"
         end
       end
       new_series = "{

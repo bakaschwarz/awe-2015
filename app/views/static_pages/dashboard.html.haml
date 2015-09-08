@@ -1,11 +1,12 @@
 %h1.centered-title Dashboard
+= render 'filter'
 %div.panel-group
-  -@station_hash = ordered_timestamps_for_stations
+  -@station_hash = ordered_timestamps_for_stations({from: @filter_from.to_i, to: @filter_to.to_i})
   -@station_hash.each_pair do |station, time_stamp_hash|
     -@station = station
     -@time_stamp_hash = time_stamp_hash
     -# Make the stations collapsible
-    = render 'static_pages/collapsejs'
+    = render 'collapsejs'
     %div.panel.panel-default
       %div.panel-heading.panel-header
         %div{id: "station_#{station.id}", style: "cursor: pointer;"}

@@ -1,0 +1,10 @@
+.filter_container
+  -@filter_from = Time.now - 2.hours
+  -@filter_to = Time.now
+  .input-group.filter_group
+    %span.input-group-addon.filter_label#from= "from:"
+    %input.form-control#filter_von{type: "text", placeholder: @filter_from.to_formatted_s(:db), "aria-describedby" => "from"}
+  .input-group.filter_group
+    %span.input-group-addon.filter_label#to= "to:"
+    %input.form-control#filter_bis{type: "text", placeholder: @filter_to.to_formatted_s(:db), "aria-describedby" => "to"}
+  %a.btn.btn-primary= "Filter"

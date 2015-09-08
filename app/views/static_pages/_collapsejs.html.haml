@@ -9,7 +9,7 @@
       $('#station_table_#{@station.id}').toggle(600, function() {
         $('#station_table_label_#{@station.id}').text(function () {
           station_table_bool_#{@station.id} = !station_table_bool_#{@station.id}
-          return station_table_bool_#{@station.id} == true ? 'Hide table' : 'Show table'
+          return station_table_bool_#{@station.id} == true ? 'Show table' : 'Hide table'
         })
       });
     });
