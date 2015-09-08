@@ -1,4 +1,23 @@
-//body{background: #fff}
+.filter_container {
+  margin-bottom: 1em;
+}
+
+.filter_container:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.filter_group {
+  width: 16em;
+  float: left;
+  margin-right: 1em;
+}
+
+.filter_label {
+  width: 4em;
+}
+
 .form-control {
   width: 40%;
 }
