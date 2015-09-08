@@ -49,7 +49,7 @@ module StaticPagesHelper
       sensor_series_data = []
       time_stamp_hash.each_pair do |time_stamp, value_pairs|
         unless value_pairs[sensor.id].nil?
-          sensor_series_data.push "["+ (Time.at(time_stamp).localtime.to_i).to_s + ", " + value_pairs[sensor.id].to_s + "]"
+          sensor_series_data.push "["+ (Time.at(time_stamp).to_i*1000 + Time.now.gmt_offset*1000).to_s + ", " + value_pairs[sensor.id].to_s + "]"
         end
       end
       new_series = "{
