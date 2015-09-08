@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'static_pages/wetter_config'
   get 'static_pages/line_chart'
   get 'static_pages/test'
+
+  get 'static_pages/reload_dashboard'
   
   post 'weather_update/create' => 'weather_update#create'
 

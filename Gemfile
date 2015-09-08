@@ -19,6 +19,7 @@ gem 'twitter-bootstrap-rails'
 gem 'highcharts-rails', '~> 3.0.0'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug'
   gem 'web-console'
   gem 'spring'

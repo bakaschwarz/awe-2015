@@ -21,4 +21,8 @@ class StaticPagesController < ApplicationController
     @sensors = Sensor.all
   end
 
+  def reload_dashboard
+    render partial: 'static_pages/dashboard_tables', locals: {filter_from: Time.now - 2.hours, filter_to: Time.now}
+  end
+
 end
