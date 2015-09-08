@@ -1,14 +1,16 @@
 %h1.centered-title Dashboard
 .filter_container
+  -filter_from = Time.now - 2.hours
+  -filter_to = Time.now
   .input-group.filter_group
-    %span.input-group-addon.filter_label#von= "von:"
-    %input.form-control{type: "text", placeholder: "15:13", "aria-describedby" => "von"}
+    %span.input-group-addon.filter_label#from= "from:"
+    %input.form-control#filter_von{type: "text", placeholder: filter_from.to_formatted_s(:db), "aria-describedby" => "from"}
   .input-group.filter_group
-    %span.input-group-addon.filter_label#bis= "bis:"
-    %input.form-control{type: "text", placeholder: "18:12", "aria-describedby" => "bis"}
+    %span.input-group-addon.filter_label#to= "to:"
+    %input.form-control#filter_bis{type: "text", placeholder: filter_to.to_formatted_s(:db), "aria-describedby" => "to"}
   %a.btn.btn-primary= "Filter"
 %div.panel-group#accordion
-  -@station_hash = ordered_timestamps_for_stations
+  -@station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})
   -@station_hash.each_with_index do |(station, time_stamp_hash), index|
     -@station = station
     -@time_stamp_hash = time_stamp_hash
