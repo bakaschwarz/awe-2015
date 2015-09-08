@@ -15,51 +15,115 @@ User.create!(
 Sensor.create!([
   {
     id: 1,
-    label: "Laptop Temperatur",
+    label: "CPU Temperatur",
     unit: "°C",
+    active: true,
     visualization_type_id: 2,
-    sensor: "temp-1000",
-    abbreviation: "T1",
-    station_id: 1
-  },
-  {
-    id: 2,
-    label: "Thermometer",
-    unit: "°C",
-    visualization_type_id: 2,
-    sensor: "tempX2000",
-    abbreviation: "inti5",
-    station_id: 1
-  },
-  {
-    id: 3,
-    label: "Lichtsensor",
-    unit: "lux",
-    visualization_type_id: 3,
-    sensor: "light_5x",
-    abbreviation: "l1",
-    station_id: 1
-  },
-  {
-    id: 4,
-    label: "Licht Terasse",
-    unit: "lux",
-    visualization_type_id: 2,
-    sensor: "light_5x",
-    abbreviation: "l2",
+    sensor: "temp0",
+    abbreviation: "t0",
     station_id: 2
-  } 
+  },
+  {
+      id: 2,
+      label: "GPU Temperatur",
+      unit: "°C",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "temp1",
+      abbreviation: "t1",
+      station_id: 2
+  },
+  {
+      id: 3,
+      label: "FAN Speed",
+      unit: "RPM",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "fan1",
+      abbreviation: "f1",
+      station_id: 2
+  },
+  {
+      id: 4,
+      label: "Außentemperatur",
+      unit: "°C",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "temp2",
+      abbreviation: "t2",
+      station_id: 1
+  },
+  {
+      id: 5,
+      label: "Innentemperatur",
+      unit: "°C",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "temp3",
+      abbreviation: "t3",
+      station_id: 1
+  },
+  {
+      id: 6,
+      label: "Luftfeuchtigkeit",
+      unit: "%",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "humid0",
+      abbreviation: "h0",
+      station_id: 1
+  },
+  {
+      id: 7,
+      label: "Luftdruck",
+      unit: "mbar",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "press0",
+      abbreviation: "p0",
+      station_id: 1
+  },
+  {
+      id: 8,
+      label: "Lichtstärke",
+      unit: "lux",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "light0",
+      abbreviation: "l0",
+      station_id: 1
+  },
+  {
+      id: 9,
+      label: "Infrarot",
+      unit: "lux",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "light1",
+      abbreviation: "l1",
+      station_id: 1
+  },
+  {
+      id: 10,
+      label: "UV-Licht",
+      unit: "lux",
+      active: true,
+      visualization_type_id: 2,
+      sensor: "light2",
+      abbreviation: "l2",
+      station_id: 1
+  }
   ])
 
 Station.create!([
   {
-    label: "Küche",
-    description: "Station in der Küche mit voller Sensorausstattung"
-  }, 
-  {
-    label: "Garten",
-    description: "Station im Garten bei Apfelbaum (Prototyp)"
-  }
+      label: "Wetterstation (Fenster 3)",
+      description: "Dachgeschoss, erstes Fenster links"
+  },
+                {
+                    label: "Laptop (Pseudo-Wetterstation)",
+                    description: "Thinkpad S540 (Intel inside)"
+                }
   ])
 
 VisualizationType.create!([
