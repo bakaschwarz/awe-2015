@@ -39,8 +39,22 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
-  #config.action_mailer.perform_deliveries = true
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  ActionMailer::Base.smtp_settings = {
+      :address    => 'smtp.gmail.com',
+      :domain     => 'gmail.com',
+      :tls => true,
+      :port       => 587,
+      :user_name  => 'wettervisualisierung@gmail.com',
+      :password   => 'gnureisilausivretteW',
+      :authentication => :login,
+      #:enable_starttls_auto => true
+  }
 end

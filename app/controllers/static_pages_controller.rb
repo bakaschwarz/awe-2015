@@ -22,7 +22,9 @@ class StaticPagesController < ApplicationController
   end
 
   def reload_dashboard
-    render partial: 'static_pages/dashboard_tables', locals: {filter_from: params[:filter_from], filter_to: params[:filter_to]}
+    from = Time.parse(params[:filter_from]).to_i
+    to = Time.parse(params[:filter_to]).to_i
+    render partial: 'static_pages/dashboard_tables', locals: {filter_from: from, filter_to: to}
   end
 
 

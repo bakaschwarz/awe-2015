@@ -1,11 +1,40 @@
 %h3 Filter
+-@filter_from = Time.now - 2.hours
+-@filter_to = Time.now
+-# Thanks @ http://eonasdan.github.io/bootstrap-datetimepicker/
 .filter_container
-  -@filter_from = Time.now - 2.hours
-  -@filter_to = Time.now
-  .input-group.filter_group
+  %div.input-group.filter_group
     %span.input-group-addon.filter_label#from= "from:"
-    %input.form-control#filter_from{type: "text", placeholder: @filter_from.to_formatted_s(:db), "aria-describedby" => "from"}
-  .input-group.filter_group
+    %div.input-group.date#datetimepicker1
+      %input.form-control#filter_from{type: "text", "aria-describedby" => "from", placeholder: @filter_from.strftime("%-m/%-d/%Y %-l:%m:%S %p")}
+      %span.input-group-addon
+        %span.fa.fa-calendar
+  %div.input-group.filter_group
     %span.input-group-addon.filter_label#to= "to:"
-    %input.form-control#filter_to{type: "text", placeholder: @filter_to.to_formatted_s(:db), "aria-describedby" => "to"}
+    %div.input-group.date#datetimepicker2
+      %input.form-control#filter_to{type: "text", "aria-describedby" => "from", placeholder: @filter_to.strftime("%-m/%-d/%Y %-l:%m:%S %p")}
+      %span.input-group-addon
+        %span.fa.fa-calendar
   %a.btn.btn-primary{type: "button", id: "filter-btn"}= "Filter"
+
+:javascript
+  $(function () {
+      $('#datetimepicker1').datetimepicker({
+      icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+      format: 'l LTS'
+      });
+      $('#datetimepicker2').datetimepicker({
+      icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+      format: 'l LTS'
+      });
+  });

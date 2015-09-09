@@ -1,16 +1,6 @@
 %div.dashboard-container
   %h1 Dashboard
-  %h3 Filter
-  .filter_container
-    -@filter_from = Time.now - 2.hours
-    -@filter_to = Time.now
-    .input-group.filter_group
-      %span.input-group-addon.filter_label#from= "from:"
-      %input.form-control#filter_from{type: "text", placeholder: @filter_from.to_formatted_s(:db), "aria-describedby" => "from"}
-    .input-group.filter_group
-      %span.input-group-addon.filter_label#to= "to:"
-      %input.form-control#filter_to{type: "text", placeholder: @filter_to.to_formatted_s(:db), "aria-describedby" => "to"}
-    %a.btn.btn-primary{type: "button", id: "filter-btn"}= "Filter"
+  = render 'filter'
   = render 'filter_js'
   %div.panel-group{id: "filter_reload"}
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
