@@ -1,13 +1,51 @@
-%div.dashboard-container
+.dashboard-container
   %h1 Dashboard
   = render 'filter'
   = render 'filter_js'
-  %div.panel-group{id: "filter_reload"}
+  .panel-group{id: "filter_reload"}
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
+  .btn.btn-primary#save-station-order-btn= "Save station order"
+
 
 :javascript
+
+  updateStationOrder = function(x) {
+
+    var item, stations;
+
+    stations = (function() {
+      var i, len, ref, result, results;
+      ref = $('#filter_reload .station');
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        item = ref[i];
+        result = {station_id: item.attributes['station_id'].value, dashboard_position: item.attributes['dashboard_position'].value};
+        results.push(result);
+      }
+      return results;
+    })();
+
+
+    console.log(JSON.stringify(stations))
+    return $.ajax({
+      url: "dashboard_positions.json",
+      data: JSON.stringify({
+        "stations_reduced": stations
+      }),
+      dataType: 'json',
+      type: 'PUT',
+      contentType: 'application/json'
+    });
+  };
+
   ready = function() {
-    $('#filter_reload').sortable({})
+    $('#filter_reload').sortable({
+      onSort: console.log('onSort event')
+    });
+    $('#save-station-order-btn').click(function() {
+      updateStationOrder();
+    });
   }
+
   $(document).ready(ready)
   $(document).on('page:load', ready)

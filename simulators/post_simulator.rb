@@ -70,16 +70,14 @@ SENSOR_ABBREVIATIONS = %w[
   l0
   l1
   l2
+  t9
 ]
 
 while true do
   # Create JSON File
-  update_data = {
+  update_data_1 = {
       "_n"                    => 1,
       "_t"                    => Time.now.to_i,
-      SENSOR_ABBREVIATIONS[0] => rand(50..54),#{}`cat /sys/class/thermal/thermal_zone0/temp`[0..1],
-      SENSOR_ABBREVIATIONS[1] => rand(50..54),
-      SENSOR_ABBREVIATIONS[2] => rand(285..300),
       SENSOR_ABBREVIATIONS[3] => rand(18..20),
       SENSOR_ABBREVIATIONS[4] => rand(24..25),
       SENSOR_ABBREVIATIONS[5] => rand(60..62),
@@ -87,10 +85,29 @@ while true do
       SENSOR_ABBREVIATIONS[7] => rand(16..18),
       SENSOR_ABBREVIATIONS[8] => rand(10..13),
       SENSOR_ABBREVIATIONS[9] => rand(17..22)
-
   }
 
-  json_file = {"s_d" => [update_data], "api_token" => "asdfghjkl"}.to_json
+  update_data_2 = {
+      "_n"                    => 2,
+      "_t"                    => Time.now.to_i,
+      SENSOR_ABBREVIATIONS[0] => rand(50..54),#{}`cat /sys/class/thermal/thermal_zone0/temp`[0..1],
+      SENSOR_ABBREVIATIONS[1] => rand(50..54),
+      SENSOR_ABBREVIATIONS[2] => rand(285..300),
+  }
+
+  update_data_3 = {
+      "_n"                    => 3,
+      "_t"                    => Time.now.to_i,
+      SENSOR_ABBREVIATIONS[10] => rand(17..22)
+  }
+
+  update_data_4 = {
+      "_n"                    => 4,
+      "_t"                    => Time.now.to_i,
+      SENSOR_ABBREVIATIONS[10] => rand(17..22)
+  }
+
+  json_file = {"s_d" => [update_data_1, update_data_2, update_data_3, update_data_4], "api_token" => "asdfghjkl"}.to_json
   # Prepare Connection
   target_website ||= Net::HTTP.new(URL.host, URL.port).tap {|http|
     http.open_timeout = 2

@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909122848) do
+ActiveRecord::Schema.define(version: 20150904091327) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "token",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "configurations", force: :cascade do |t|
-    t.string   "key"
-    t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150909122848) do
     t.text     "description"
     t.string   "label"
     t.integer  "node_number"
-    t.integer  "index_dashboard"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "dashboard_position", default: 999
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
