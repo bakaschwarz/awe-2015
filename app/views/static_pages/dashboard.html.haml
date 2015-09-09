@@ -4,3 +4,10 @@
   = render 'filter_js'
   %div.panel-group{id: "filter_reload"}
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
+
+:javascript
+  ready = function() {
+    $('#filter_reload').sortable({})
+  }
+  $(document).ready(ready)
+  $(document).on('page:load', ready)

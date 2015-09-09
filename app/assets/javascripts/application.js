@@ -18,4 +18,5 @@
 //= require highcharts/highcharts-more
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jquery.fn.sortable.js
 //= require_tree .
