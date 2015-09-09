@@ -5,6 +5,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      #For Filter remembering (in seconds)
+      t.integer :filter_range
+      t.integer :filter_precision
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

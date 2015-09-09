@@ -8,9 +8,6 @@ class StationsController < ApplicationController
   def show # Show is also for editing
   end
 
-  def destroy
-  end
-
   def create
     @station = Station.new(station_params)
     if @station.save

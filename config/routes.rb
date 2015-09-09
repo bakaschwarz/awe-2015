@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :sensors
   resources :stations
+  resources :users
 
   root 'static_pages#dashboard'
 
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   post 'static_pages/reload_dashboard' => 'static_pages#reload_dashboard'
   
   post 'weather_update/create' => 'weather_update#create'
+
+  patch 'static_pages/update_defaults' => 'users#update'
 
   devise_for :users
 end

@@ -27,6 +27,8 @@ class StaticPagesController < ApplicationController
     render partial: 'static_pages/dashboard_tables', locals: {filter_from: from, filter_to: to}
   end
 
+  def update_defaults
 
+  end
 
 end
