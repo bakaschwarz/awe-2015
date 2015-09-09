@@ -3,15 +3,17 @@
   %h2 Station Configuration
   %table.table.table-striped.table-bordered
     %tr
-      %th= "ID"
+      %th= "Node Number"
       %th= "Label"
       %th= "Description"
+      %th= "Dashboard Index"
       %th= "Options"
     -@stations.each do |station|
       %tr
-        %td= station.id
+        %td= station.node_number
         %td= station.label
         %td= station.description
+        %td= station.index_dashboard
         %td
           = link_to "Edit", station
           = link_to "Delete", station, method: :delete, data: { confirm: 'Are you sure?' }

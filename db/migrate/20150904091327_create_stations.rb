@@ -3,6 +3,8 @@ class CreateStations < ActiveRecord::Migration
     create_table :stations do |t|
       t.text :description
       t.string :label
+      t.integer :node_number
+      t.integer :index_dashboard
 
       t.timestamps null: false
     end

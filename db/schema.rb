@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 20150904091327) do
   create_table "stations", force: :cascade do |t|
     t.text     "description"
     t.string   "label"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "node_number"
+    t.integer  "index_dashboard"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|

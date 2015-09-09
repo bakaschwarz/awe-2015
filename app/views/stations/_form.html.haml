@@ -2,8 +2,8 @@
   %table.table.table-striped.table-bordered
     %tr
       .field
-        %td= f.label :id
-        %td= f.text_field :id, class: "form-control"
+        %td= f.label :node_number
+        %td= f.text_field :node_number, class: "form-control"
     %tr
       .field 
         %td= f.label :label
@@ -12,6 +12,10 @@
       .field
         %td= f.label :description
         %td= f.text_area :description, :rows => 5, class: "form-control"
+    %tr
+      .field
+        %td= f.label :index_dashboard
+        %td= f.text_field :index_dashboard, class: "form-control"
     %tr
       .actions
       %td= f.submit class: "btn btn-default"

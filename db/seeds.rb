@@ -108,12 +108,16 @@ Sensor.create!([
 Station.create!([
   {
       label: "Wetterstation (Fenster 3)",
-      description: "Dachgeschoss, erstes Fenster links"
+      description: "Dachgeschoss, erstes Fenster links",
+      node_number: 1,
+      index_dashboard: 1
   },
-                {
-                    label: "Laptop (Pseudo-Wetterstation)",
-                    description: "Thinkpad S540 (Intel inside)"
-                }
+  {
+      label: "Laptop (Pseudo-Wetterstation)",
+      description: "Thinkpad S540 (Intel inside)",
+      node_number: 2,
+      index_dashboard: 2
+  }
   ])
 
 VisualizationType.create!([
