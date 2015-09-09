@@ -4,7 +4,7 @@
   -@time_stamp_hash = time_stamp_hash
   -# Make the stations collapsible
   = render 'collapsejs'
-  %div.panel.panel-default
+  %div.panel.panel-default.station{ dashboard_position: station.dashboard_position}
     %div.panel-heading.panel-header
       %div{id: "station_#{station.id}", style: "cursor: pointer;"}
         %h2= station.label

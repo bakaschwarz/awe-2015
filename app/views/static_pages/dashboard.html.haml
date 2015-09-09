@@ -5,9 +5,40 @@
   %div.panel-group{id: "filter_reload"}
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
 
+
 :javascript
+
+  updateStationOrder = function(x) {
+    console.log
+
+    var item, item_positions;
+    item_positions = (function() {
+      var i, len, ref, results;
+      ref = $('#filter_reload .station');
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        item = ref[i];
+        results.push(item.attributes['dashboard_position'].value);
+      }
+      return results;
+    })();
+    console.log(item_positions);
+    return $.ajax({
+      url: "indices_dashboard.json",
+      data: JSON.stringify({
+        "indices_dashboard": item_positions
+      }),
+      dataType: 'json',
+      type: 'PUT',
+      contentType: 'application/json'
+    });
+  };
+
   ready = function() {
-    $('#filter_reload').sortable({})
+    $('#filter_reload').sortable({
+      onSort: updateStationOrder
+    })
   }
+
   $(document).ready(ready)
   $(document).on('page:load', ready)
