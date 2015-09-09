@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :sensors
   resources :stations
 
+  
+  patch 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
+  put 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
+  
+
+
   root 'static_pages#dashboard'
 
   get 'static_pages/dashboard'

@@ -4,7 +4,7 @@ class CreateStations < ActiveRecord::Migration
       t.text :description
       t.string :label
       t.integer :node_number
-      t.integer :dashboard_position
+      t.integer :dashboard_position, default: 999
 
       t.timestamps null: false
     end

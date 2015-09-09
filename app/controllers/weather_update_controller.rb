@@ -10,7 +10,8 @@ class WeatherUpdateController < ApplicationController
 
             #Create new Station if it is non existent
             begin
-              station_id = Station.find_by_node_number(data_set["_n"]).id
+              station = Station.find_by_node_number(data_set["_n"])
+              station_id = station.id
             rescue
               new_station = Station.new(
                                        node_number: data_set["_n"],
@@ -19,13 +20,14 @@ class WeatherUpdateController < ApplicationController
                                        index_dashboard: Station.order('stations.index_dashboard DESC').first.index_dashboard+1
               )
               new_station.save
+              station = new_station
               station_id = new_station.id
             end
 
 
             # Create new Sensor if it is non existent
             begin
-              sensor_id = Sensor.find_by_abbreviation(sensor).id
+              sensor_id = station.sensors.find_by_abbreviation(sensor).id
             rescue
               new_sensor = Sensor.new(
                   abbreviation: sensor,

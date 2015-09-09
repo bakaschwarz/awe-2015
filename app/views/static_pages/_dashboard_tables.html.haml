@@ -1,10 +1,11 @@
--@station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})
--@station_hash.each_pair do |station, time_stamp_hash|
+-station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})
+-station_hash_sorted = Hash[station_hash.sort_by {|station, time_stamp_hash| station[:dashboard_position]}]
+-station_hash_sorted.each_pair do |station, time_stamp_hash|
   -@station = station
   -@time_stamp_hash = time_stamp_hash
   -# Make the stations collapsible
   = render 'collapsejs'
-  %div.panel.panel-default.station{ dashboard_position: station.dashboard_position}
+  %div.panel.panel-default.station{ station_id: station.id, dashboard_position: station.dashboard_position}
     %div.panel-heading.panel-header
       %div{id: "station_#{station.id}", style: "cursor: pointer;"}
         %h2= station.label

@@ -102,7 +102,25 @@ Sensor.create!([
       sensor: "light2",
       abbreviation: "l2",
       station_id: 1
-  }
+  },
+  {
+    id: 11,
+    label: "Temperatur Thermometer",
+    unit: "°C",
+    visualization_type_id: 2,
+    sensor: "Thermometer Hirsch 5",
+    abbreviation: "t9",
+    station_id: 3
+  },
+  {
+    id: 12,
+    label: "Temperatur Küchenthermometer",
+    unit: "°C",
+    visualization_type_id: 2,
+    sensor: "Thermometer Hirsch 5",
+    abbreviation: "t9",
+    station_id: 4
+  },
   ])
 
 Station.create!([
@@ -110,13 +128,25 @@ Station.create!([
       label: "Wetterstation (Fenster 3)",
       description: "Dachgeschoss, erstes Fenster links",
       node_number: 1,
-      dashboard_position: 1
+      dashboard_position: 0
   },
   {
       label: "Laptop (Pseudo-Wetterstation)",
       description: "Thinkpad S540 (Intel inside)",
       node_number: 2,
       dashboard_position: 2
+  },
+  {
+      label: "Apfelbaum",
+      description: "Prototypstation beim Apfelbaum",
+      node_number: 3,
+      dashboard_position: 1
+  },
+  { 
+      label: "Küche",
+      description: "Station in der Küche",
+      node_number: 4,
+      dashboard_position: 4
   }
   ])
 
