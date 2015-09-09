@@ -6,13 +6,13 @@
   %div.input-group.filter_group
     %span.input-group-addon.filter_label#from= "from:"
     %div.input-group.date#datetimepicker1
-      %input.form-control#filter_from{type: "text", "aria-describedby" => "from", value: @filter_from.strftime("%-m/%-d/%Y %-l:%m:%S %p")}
+      %input.form-control#filter_from{type: "text", "aria-describedby" => "from", value: @filter_from.strftime("%-m/%-d/%Y %-l:%M:%S %p")}
       %span.input-group-addon
         %span.fa.fa-calendar
   %div.input-group.filter_group
     %span.input-group-addon.filter_label#to= "to:"
     %div.input-group.date#datetimepicker2
-      %input.form-control#filter_to{type: "text", "aria-describedby" => "from", value: @filter_to.strftime("%-m/%-d/%Y %-l:%m:%S %p")}
+      %input.form-control#filter_to{type: "text", "aria-describedby" => "from", value: @filter_to.strftime("%-m/%-d/%Y %-l:%M:%S %p")}
       %span.input-group-addon
         %span.fa.fa-calendar
   %a.btn.btn-primary{type: "button", id: "filter-btn"}= "Filter"
