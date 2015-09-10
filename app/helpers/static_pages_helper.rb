@@ -27,9 +27,7 @@ module StaticPagesHelper
           }
         },
         title: {
-          text: '',//'#{station.sensors.clone.to_a.delete_if{ |s|
-          s.unit != sensor.unit }.map{|s|
-          s.label }.join(', ')}',
+          text: '',
           style: {
             color: 'black'
           }

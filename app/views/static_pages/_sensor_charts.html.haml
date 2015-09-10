@@ -10,16 +10,16 @@
       },
       plotOptions: {
             spline: {
-                lineWidth: 3,
+                lineWidth: 2,
                 states: {
                     hover: {
-                        lineWidth: 4
+                        lineWidth: 3
                     }
                 },
                 marker: {
                     enabled: false
                 }
-            }
+            },
         },
       xAxis: [{
         crosshair: true,
@@ -30,7 +30,8 @@
       }],
       yAxis: #{generate_yaxis_by_station @station},
       tooltip: {
-        shared: true
+        shared: true,
+        visible: true
       },
       legend: {
         layout: 'vertical',

@@ -22,9 +22,8 @@ ActiveRecord::Schema.define(version: 20150910073209) do
   create_table "configs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "filter_range"
-    t.integer  "filter_precision"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "sensor_data", force: :cascade do |t|
@@ -39,12 +38,12 @@ ActiveRecord::Schema.define(version: 20150910073209) do
     t.string   "sensor"
     t.string   "label"
     t.string   "unit"
-    t.string   "abbreviation",                          null: false
-    t.integer  "station_id",                            null: false
+    t.string   "abbreviation",                         null: false
+    t.integer  "station_id",                           null: false
     t.integer  "visualization_type_id"
-    t.boolean  "active",                default: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.boolean  "active",                default: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "stations", force: :cascade do |t|

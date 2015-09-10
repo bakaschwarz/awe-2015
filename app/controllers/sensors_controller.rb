@@ -30,7 +30,13 @@ class SensorsController < ApplicationController
   end
 
   def destroy
+    id = @sensor.id
     @sensor.destroy
+
+    @sensor.sensor_data.each do |datum|
+      datum.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to static_pages_wetter_config_path, notice: 'Sensor was successfully destroyed.' }
       format.json { head :no_content }

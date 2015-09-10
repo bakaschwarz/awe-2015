@@ -18,6 +18,8 @@ Feature: Navigate the Navigation Bar
     And I will be redirected to the configuration
     Then I press "Dashboard"
     And I will be redirected to the dashboard
+    Then I press "Log In Settings"
+    And I will be redirected to the user settings
     Then I press "Sign Out"
     Then I am redirected to the login page
     
