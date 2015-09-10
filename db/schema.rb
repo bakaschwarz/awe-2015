@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910073209) do
+ActiveRecord::Schema.define(version: 20150910113755) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "token",      null: false
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20150910073209) do
     t.integer  "filter_precision"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "main_diagrams", force: :cascade do |t|
+    t.string   "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sensor_data", force: :cascade do |t|
@@ -41,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150910073209) do
     t.string   "unit"
     t.string   "abbreviation",          null: false
     t.integer  "station_id",            null: false
+    t.integer  "main_diagram_id"
     t.integer  "visualization_type_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

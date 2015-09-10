@@ -12,6 +12,21 @@ module StaticPagesHelper
     ordered_stamps
   end
 
+  def ordered_timestamps_for_main_diagram(options = {from: 0, to: Time.now.to_i})
+    sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp ASC").where(time_stamp: options[:from]..options[:to])
+    ordered_stamps = {}
+    sensor_data_unsorted.each do |sensor_data|
+      main_diagram_id = Sensor.find(sensor_data[:sensor_id]).main_diagram_id;
+      if main_diagram_id # not every Sensor is associated to a MainDiagram, thus we often get nil and do not have to save the TimeStamp
+        main_diagram = MainDiagram.find(main_diagram_id)
+        ordered_stamps[main_diagram] ||= {}
+        ordered_stamps[main_diagram][sensor_data[:time_stamp]] ||= Hash.new
+        ordered_stamps[main_diagram][sensor_data[:time_stamp]][sensor_data[:sensor_id]] = sensor_data[:value]
+      end
+    end
+    ordered_stamps
+  end
+
   def generate_yaxis_by_station(station, options = {})
     y_axis_array = []
     @unit_sensor_hash = {}

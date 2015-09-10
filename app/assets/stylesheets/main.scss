@@ -58,3 +58,40 @@
 .station {
   margin-bottom: 1em !important;
 }
+
+.main-diagram {
+  background-color: #DEF5FC !important;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+section {
+    padding: 8px;
+    background-color: #DEF5FC;
+    overflow: auto;
+}
+section > DIV {
+    float: left;
+    padding: 4px;
+}
+
+.md-label {
+  height: 2em;
+  clear: both;
+  text-align: left;
+}
+.md-left, .md-right{
+    width: 40%;
+    text-align: center;
+}
+
+.md-middle {
+  width: 20%
+}
+
+#btnLeft, #btnRight, .md-btn{
+  width: 100%;
+  margin-bottom: 1em;
+}

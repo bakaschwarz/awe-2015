@@ -2,7 +2,7 @@
   %h1 Dashboard
   = render 'filter'
   = render 'filter_js'
-  .panel-group{id: "filter_reload"}
+  .visuals-container#filter_reload
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
   .btn.btn-primary#save-station-order-btn= "Save station order"
 
@@ -15,7 +15,7 @@
 
     stations = (function() {
       var i, len, ref, result, results;
-      ref = $('#filter_reload .station');
+      ref = $('#station-panels .station');
       results = [];
       for (i = 0, len = ref.length; i < len; i++) {
         item = ref[i];
@@ -39,7 +39,7 @@
   };
 
   ready = function() {
-    $('#filter_reload').sortable({
+    $('#station-panels').sortable({
       onSort: console.log('onSort event')
     });
     $('#save-station-order-btn').click(function() {
