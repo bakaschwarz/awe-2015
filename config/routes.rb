@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get 'static_pages/test'
 
   post 'static_pages/reload_dashboard' => 'static_pages#reload_dashboard'
+  post 'static_pages/reload_main_diagram' => 'static_pages#reload_main_diagram'
+
+  
   
   post 'weather_update/create' => 'weather_update#create'
 

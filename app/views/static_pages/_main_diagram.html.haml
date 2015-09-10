@@ -1,0 +1,83 @@
+.panel-group#maindiagram-panels
+  -main_diagram_hash = ordered_timestamps_for_main_diagram({from: filter_from.to_i, to: filter_to.to_i})
+  -main_diagram_hash.each_pair do |main_diagram, time_stamp_hash|
+    -@main_diagram = main_diagram # set it to an instance variable in order to access it from javascript in other file
+    -@time_stamp_hash = time_stamp_hash
+    %div.panel.panel-default
+      %div.panel-heading.panel-header.main-diagram
+        %div{id: "main_diagram_label", style: "cursor: pointer;"}
+          %h2= main_diagram.label
+        #main_diagram_content
+          =render 'main_diagram_chart'
+          .main-diagram-selection-container
+            %h3= "Select sensors to display"
+            -# Thanks to: http://stackoverflow.com/questions/15696415/html-multiple-select-box
+            %section.md-container
+              .md-left
+                .md-label Shown
+                %select#leftValues{main_diagram_id: 1, size: @sensors.count+1, multiple: true}
+                  -@sensors.each do |sensor|
+                    -if sensor.main_diagram == @main_diagram
+                      %option{sensor_id: sensor.id}= sensor.label + ", " + sensor.station.label
+              .md-middle
+                .md-label
+                %input#btnLeft{type: "button", value: "<<"}
+                %input#btnRight{type: "button", value: ">>"}
+                .btn.btn-primary.md-btn#update-md= "Update diagram"
+              .md-right
+                .md-label Now shown
+                %select#rightValues{size: @sensors.count, multiple: true}
+                  -@sensors.each do |sensor|
+                    -if sensor.main_diagram != @main_diagram
+                      %option{sensor_id: sensor.id}= sensor.label + ", " + sensor.station.label
+                %div
+                  %input#txtRight{type: "text"}
+  :javascript
+    $("#btnLeft").click(function () {
+        var selectedItem = $("#rightValues option:selected");
+        $("#leftValues").append(selectedItem);
+    });
+
+    $("#btnRight").click(function () {
+        var selectedItem = $("#leftValues option:selected");
+        $("#rightValues").append(selectedItem);
+    });
+
+    function updateDatabase() {
+      var sensor_ids_show = $("#leftValues option").map(function() {
+        return $(this).attr("sensor_id");
+      }).get();
+      var sensor_ids_notshow = $("#rightValues option").map(function() {
+        return $(this).attr("sensor_id");
+      }).get();
+      console.log(sensor_ids_show);
+      console.log(sensor_ids_notshow);
+
+      var main_diagram_id = $("#leftValues").attr("main_diagram_id");
+      var sensor_info = {main_diagram_id: main_diagram_id, show: sensor_ids_show, notshow: sensor_ids_notshow};
+      console.log(JSON.stringify(sensor_info));
+
+      return $.ajax({
+        url: "main_diagram_info.json",
+        data: JSON.stringify({"main_diagram_info": sensor_info}),
+        dataType: 'json',
+        type: 'PUT',
+        contentType: 'application/json'
+      });
+    }
+
+    function reloadMainDiagram(){
+      var filter_from = $('#filter_from').val();
+      var filter_to = $('#filter_to').val();
+      $('#maindiagram-reload').load('/static_pages/reload_main_diagram', { filter_from: filter_from, filter_to: filter_to });
+    }
+
+    $("#rightValues").change(function () {
+        var selectedItem = $("#rightValues option:selected");
+        $("#txtRight").val(selectedItem.text());
+    });
+
+    $('#update-md').click(function() {
+      updateDatabase();
+      reloadMainDiagram();
+    });
