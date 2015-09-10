@@ -1,0 +1,54 @@
+#main_diagram_graph
+:javascript
+  $('main_diagram_graph').html("test");
+  $(function () {
+    $('#main_diagram_graph').highcharts({
+      chart: {
+        zoomType: 'xy'
+      },
+      title: {
+        text: '#{@main_diagram.label}'
+      },
+      plotOptions: {
+            spline: {
+                lineWidth: 3,
+                states: {
+                    hover: {
+                        lineWidth: 4
+                    }
+                },
+                marker: {
+                    enabled: false
+                }
+            }
+        },
+      xAxis: [{
+        crosshair: true,
+        type: 'datetime',
+        dateTimeLabelFormats: {
+                millisecond: '%H:%M'
+            }
+      }],
+      yAxis: #{generate_yaxis_by_station @main_diagram},
+      tooltip: {
+        shared: true
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 80,
+        verticalAlign: 'top',
+        y: 55,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+      },
+      series: #{generate_series_by_station @main_diagram, @time_stamp_hash, @unit_sensor_hash}
+    });
+  });
+
+  $(document).ready(function() {
+    $('#main_diagram_label').click(function(){
+      $('#main_diagram_content').toggle(600);
+    });
+  });
+

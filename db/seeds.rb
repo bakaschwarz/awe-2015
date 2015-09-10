@@ -34,7 +34,8 @@ Sensor.create!([
       visualization_type_id: 2,
       sensor: "temp1",
       abbreviation: "t1",
-      station_id: 2
+      station_id: 2,
+      main_diagram_id: 1
   },
   {
       id: 3,
@@ -52,7 +53,8 @@ Sensor.create!([
       visualization_type_id: 2,
       sensor: "temp2",
       abbreviation: "t2",
-      station_id: 1
+      station_id: 1,
+      main_diagram_id: 1
   },
   {
       id: 5,
@@ -152,6 +154,12 @@ Station.create!([
       description: "Station in der Küche",
       node_number: 4,
       dashboard_position: 4
+  },
+  { 
+      label: "Waschraum",
+      description: "Waschraum im Keller (noch keine Sensoren)",
+      node_number: 5,
+      dashboard_position: 5
   }
   ])
 
@@ -173,6 +181,8 @@ VisualizationType.create!([
     chart_keyword: "areaspline"
   }
   ])
+
+MainDiagram.create!(id: 1, label: "Main diagram")
 
 ApiToken.create!(
             token: "asdfghjkl"

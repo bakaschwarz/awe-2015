@@ -6,6 +6,7 @@ class CreateSensors < ActiveRecord::Migration
       t.string :unit
       t.string :abbreviation, null: false
       t.integer :station_id, null: false
+      t.integer :main_diagram_id
       t.integer :visualization_type_id
       t.boolean :active, default: true
 

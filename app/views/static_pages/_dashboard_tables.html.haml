@@ -1,35 +1,37 @@
--station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})
--station_hash_sorted = Hash[station_hash.sort_by {|station, time_stamp_hash| station[:dashboard_position]}]
--station_hash_sorted.each_pair do |station, time_stamp_hash|
-  -@station = station
-  -@time_stamp_hash = time_stamp_hash
-  -# Make the stations collapsible
-  = render 'collapsejs'
-  %div.panel.panel-default.station{ station_id: station.id, dashboard_position: station.dashboard_position}
-    %div.panel-heading.panel-header
-      %div{id: "station_#{station.id}", style: "cursor: pointer;"}
-        %h2= station.label
-      %div{id: "station_content_#{station.id}"}
-        =render 'sensor_charts'
-        %div.panel.panel-default
-          %div.panel-heading.panel-header
-            %div{id: "station_table_toggle_#{station.id}", style: "cursor: pointer;"}
-              %h3{id: "station_table_label_#{station.id}"} Show table
-          %table.table.table-striped.table-bordered{id: "station_table_#{station.id}"}
-            %tr
-              %th= "Time Stamp"
-              -station.sensors.each do |sensor|
-                %th
-                  = sensor.label
-                  = "["
-                  = sensor.unit
-                  = "]"
-            -time_stamp_hash.each_pair do |time_stamp, value_hash|
+%hr
+.panel-group#station-panels
+  -station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})
+  -station_hash_sorted = Hash[station_hash.sort_by {|station, time_stamp_hash| station[:dashboard_position]}]
+  -station_hash_sorted.each_pair do |station, time_stamp_hash|
+    -@station = station
+    -@time_stamp_hash = time_stamp_hash
+    -# Make the stations collapsible
+    = render 'collapsejs'
+    %div.panel.panel-default.station{ station_id: station.id, dashboard_position: station.dashboard_position}
+      %div.panel-heading.panel-header
+        %div{id: "station_#{station.id}", style: "cursor: pointer;"}
+          %h2= station.label
+        %div{id: "station_content_#{station.id}"}
+          =render 'sensor_charts'
+          %div.panel.panel-default
+            %div.panel-heading.panel-header
+              %div{id: "station_table_toggle_#{station.id}", style: "cursor: pointer;"}
+                %h3{id: "station_table_label_#{station.id}"} Show table
+            %table.table.table-striped.table-bordered{id: "station_table_#{station.id}"}
               %tr
-                %td= Time.at(time_stamp).to_formatted_s(:db)
+                %th= "Time Stamp"
                 -station.sensors.each do |sensor|
-                  %td
-                    -if value_hash[sensor.id] == nil
-                      = "N/A"
-                    -else
-                      = value_hash[sensor.id]
+                  %th
+                    = sensor.label
+                    = "["
+                    = sensor.unit
+                    = "]"
+              -time_stamp_hash.each_pair do |time_stamp, value_hash|
+                %tr
+                  %td= Time.at(time_stamp).to_formatted_s(:db)
+                  -station.sensors.each do |sensor|
+                    %td
+                      -if value_hash[sensor.id] == nil
+                        = "N/A"
+                      -else
+                        = value_hash[sensor.id]

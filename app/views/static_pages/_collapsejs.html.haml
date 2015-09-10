@@ -1,7 +1,7 @@
 :javascript
   var station_table_bool_#{@station.id} = true;
   $(document).ready(function() {
-  $('#station_table_#{@station.id}').toggle(1);
+    $('#station_table_#{@station.id}').toggle(1);
     $('#station_#{@station.id}').click(function(){
       $('#station_content_#{@station.id}').toggle(600);
     });
