@@ -3,7 +3,7 @@ class CreateStations < ActiveRecord::Migration
     create_table :stations do |t|
       t.text :description
       t.string :label
-      t.integer :node_number
+      t.integer :node_number, unique: true
       t.integer :dashboard_position, default: 999
 
       t.timestamps null: false

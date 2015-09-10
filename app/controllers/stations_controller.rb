@@ -13,7 +13,8 @@ class StationsController < ApplicationController
     if @station.save
       redirect_to static_pages_wetter_config_path
     else
-      #handle unsuccessful create
+      flash[:danger] = "Illegal Input"
+      render 'new'
     end
   end
 
@@ -25,7 +26,8 @@ class StationsController < ApplicationController
     if @station.update(station_params)
       redirect_to static_pages_wetter_config_path
     else
-      # handle unsucessful update
+      flash[:danger] = "Illegal Input"
+      redirect_to station_path(@station)
     end
   end
 

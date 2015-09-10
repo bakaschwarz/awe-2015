@@ -14,7 +14,7 @@
           %td= station.label
           %td= station.description
           %td
-            = link_to "Edit", station
+            = link_to "Edit", station, id: "station_#{station.id}"
             = link_to "Delete", station, method: :delete, data: { confirm: 'Are you sure?' }
     %a.btn.btn-primary{href: new_station_url} Create new station
   %br
@@ -40,7 +40,7 @@
           %td= sensor.visualization_type.name
           %td{style: (sensor.active? ? "color: #00C000;" : "color: #C00000")}= sensor.active? ? "Yes" : "No"
           %td
-            = link_to "Edit", sensor
+            = link_to "Edit", sensor, id: "sensor_#{sensor.id}"
             = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure?' }
     %a.btn.btn-primary{href: new_sensor_url} Create new sensor
   %br
