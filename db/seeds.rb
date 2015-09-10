@@ -12,6 +12,12 @@ User.create!(
   password_confirmation: "asdf"
   )
 
+Config.create!(
+                 user_id: 1,
+                 filter_range: (60*60*2),
+                 filter_precision: 30
+)
+
 Sensor.create!([
   {
     id: 1,

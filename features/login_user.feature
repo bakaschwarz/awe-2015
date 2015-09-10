@@ -4,6 +4,8 @@ Feature: Login
 
   Background:
     Given the database has a user with the mail "example@example.com" and the password "asdf"
+    Given the database has a configuration with default values
+    Given the database contains the needed visualization types
 
   Scenario: Logged out user visits the dashboard
     When I visit the dashboard

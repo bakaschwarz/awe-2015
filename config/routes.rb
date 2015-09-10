@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'configs/update'
+
   resources :sensors
   resources :stations
-  resources :users
+  resources :configs
 
   
   patch 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
   post 'static_pages/reload_dashboard' => 'static_pages#reload_dashboard'
   
   post 'weather_update/create' => 'weather_update#create'
-
-  patch 'static_pages/update_defaults' => 'users#update'
 
   devise_for :users
 end

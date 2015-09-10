@@ -39,3 +39,28 @@ end
 Then(/^I will be redirected to the dashboard$/) do
   expect(current_url == root_url).to be true
 end
+
+Given(/^the database has a configuration with default values$/) do
+  Config.create!
+end
+
+Given(/^the database contains the needed visualization types$/) do
+  VisualizationType.create!([
+                                {
+                                    name: "Scatter",
+                                    chart_keyword: "scatter"
+                                },
+                                {
+                                    name: "Line",
+                                    chart_keyword: "spline"
+                                },
+                                {
+                                    name: "Bar",
+                                    chart_keyword: "column"
+                                },
+                                {
+                                    name: "Area",
+                                    chart_keyword: "areaspline"
+                                }
+                            ])
+end

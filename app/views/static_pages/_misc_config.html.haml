@@ -1,14 +1,13 @@
 %div
   %h2 Defaults
-  = form_tag user_path(User.first), method: :patch do
-    %form.edit_user#edit_user_1{action: "/users/1", "accept-charset" => "UTF-8", method: "post"}
-      %table.table.table-striped.table-bordered
-        %tr
-          %td Default Filter Range (seconds)
-          %td
-            = text_field_tag :filter_range,{},  {class: 'form-control', value: User.first.filter_range}
-        %tr
-          %td Default Filter Precision (seconds)
-          %td
-            = text_field_tag :filter_precision,{}, {class: 'form-control', value: User.first.filter_precision}
-      = submit_tag "Update Defaults", class: 'btn btn-primary'
+  = form_tag config_path(Config.first), method: :patch do
+    %table.table.table-striped.table-bordered
+      %tr
+        %td Default Filter Range (seconds)
+        %td
+          = text_field_tag :filter_range,{},  {class: 'form-control', value: Config.first.filter_range}
+      %tr
+        %td Default Filter Precision (seconds)
+        %td
+          = text_field_tag :filter_precision,{}, {class: 'form-control', value: Config.first.filter_precision}
+    = submit_tag "Update Defaults", class: 'btn btn-primary'

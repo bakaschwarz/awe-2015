@@ -1,5 +1,5 @@
 %h3 Filter
--@filter_from = Time.now - User.first.filter_range.seconds
+-@filter_from = Time.now - Config.first.filter_range.seconds
 -@filter_to = Time.now
 -# Thanks @ http://eonasdan.github.io/bootstrap-datetimepicker/
 .filter_container
@@ -17,7 +17,7 @@
         %span.fa.fa-calendar
   %div.input-group.filter-group
     %span.input-group-addon.filter_label Precision (sec)
-    %input.form-control.filter-precision-field{value: User.first.filter_precision}
+    %input.form-control.filter-precision-field{value: Config.first.filter_precision}
   %a.btn.btn-primary{type: "button", id: "filter-btn"}= "Filter"
 
 :javascript

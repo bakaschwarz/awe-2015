@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904091327) do
+ActiveRecord::Schema.define(version: 20150910073209) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "token",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "configs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "filter_range"
+    t.integer  "filter_precision"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "sensor_data", force: :cascade do |t|

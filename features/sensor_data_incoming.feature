@@ -5,6 +5,8 @@ Feature: A post request for updating the sensor database
 
   Background:
     Given the database has a user with the mail "example@example.com" and the password "asdf"
+    Given the database has a configuration with default values
+    Given the database contains the needed visualization types
     And the database contains a sensor abbreviation "tm1", with the name "sensor_1", the label "temperature" and the unit "°C"
     And the database contains an api token
 

@@ -1,4 +1,5 @@
 class WeatherUpdateController < ApplicationController
+  protect_from_forgery except: :create
 
   def create
     token = params[:api_token]
@@ -17,7 +18,6 @@ class WeatherUpdateController < ApplicationController
                                        node_number: data_set["_n"],
                                        description: "N/A",
                                        label: "N/A",
-                                       index_dashboard: Station.order('stations.index_dashboard DESC').first.index_dashboard+1
               )
               new_station.save
               station = new_station

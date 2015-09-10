@@ -4,6 +4,9 @@ Feature: Logout
 
   Background:
     Given the database has a user with the mail "example@example.com" and the password "asdf"
+    Given the database has a configuration with default values
+    Given the database contains the needed visualization types
+
 
   Scenario: A user logs in and logs out
     Given I am a user with the mail "example@example.com" and the password "asdf"
