@@ -7,6 +7,5 @@ class Sensor < ActiveRecord::Base
   private
     def set_defaults
       self.visualization_type_id ||= 1
-      self.active ||= true
     end
 end

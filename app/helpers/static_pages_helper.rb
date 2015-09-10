@@ -61,7 +61,8 @@ module StaticPagesHelper
       data: [#{sensor_series_data.join(', ')}],
       tooltip: {
         valueSuffix: ' #{sensor.unit}'
-      }
+      },
+      visible: #{sensor.active}
       }"
       series_array.push new_series
     end

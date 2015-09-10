@@ -7,7 +7,7 @@ class CreateSensors < ActiveRecord::Migration
       t.string :abbreviation, null: false
       t.integer :station_id, null: false
       t.integer :visualization_type_id
-      t.boolean :active
+      t.boolean :active, default: true
 
       t.timestamps null: false
     end
