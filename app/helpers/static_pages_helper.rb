@@ -1,6 +1,8 @@
 module StaticPagesHelper
 
   def ordered_timestamps_for_stations(options = {from: 0, to: Time.now.to_i})
+
+
     sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp ASC").where(time_stamp: options[:from]..options[:to])
     ordered_stamps = {}
     sensor_data_unsorted.each do |sensor_data|

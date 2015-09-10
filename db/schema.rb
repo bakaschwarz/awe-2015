@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150910073209) do
     t.string   "abbreviation",          null: false
     t.integer  "station_id",            null: false
     t.integer  "visualization_type_id"
+    t.boolean  "active"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

@@ -7,7 +7,6 @@
         %th= "Node Number"
         %th= "Label"
         %th= "Description"
-        %th= "Dashboard Index"
         %th= "Options"
       -@stations.each do |station|
         %tr
@@ -29,6 +28,7 @@
         %th= "Abbreviation in JSON"
         %th= "Station"
         %th= "Visualization"
+        %th= "Active?"
         %th= "Options"
       -@sensors.each do |sensor|
         %tr
@@ -38,6 +38,7 @@
           %td= sensor.abbreviation
           %td= link_to sensor.station.label, sensor.station
           %td= sensor.visualization_type.name
+          %td{style: (sensor.active? ? "color: #00C000;" : "color: #C00000")}= sensor.active? ? "Yes" : "No"
           %td
             = link_to "Edit", sensor
             = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure?' }

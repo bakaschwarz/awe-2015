@@ -8,9 +8,6 @@ class SensorsController < ApplicationController
   def show # Show is also for editing
   end
 
-  def destroy
-  end
-
   def create
     @sensor = Sensor.new(sensor_params)
     if @sensor.save
