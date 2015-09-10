@@ -1,5 +1,5 @@
 Given(/^the database contains a station with the label "([^"]*)" and the node number "([^"]*)" and the id "([^"]*)"$/) do |arg1, arg2, arg3|
-  @station = Station.create(
+  @station = Station.create!(
              label: arg1,
              node_number: arg2,
              id: arg3
@@ -7,7 +7,8 @@ Given(/^the database contains a station with the label "([^"]*)" and the node nu
 end
 
 Given(/^the database contains a sensor with the label "([^"]*)" and belongs to node number "([^"]*)" and the id "([^"]*)"$/) do |arg1, arg2, arg3|
-  @sensor = Sensor.create(
+  byebug
+  @sensor = Sensor.create!(
             label: arg1,
             abbreviation: arg1,
             station_id: Station.find_by_node_number(arg2).id,
