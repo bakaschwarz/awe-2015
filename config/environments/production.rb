@@ -94,6 +94,5 @@ Rails.application.configure do
       :password   => 'gnureisilausivretteW',
       :authentication => :login,
       #:enable_starttls_auto => true
-
   }
 end

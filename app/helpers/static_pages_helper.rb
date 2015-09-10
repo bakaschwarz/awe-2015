@@ -3,11 +3,9 @@ module StaticPagesHelper
   def ordered_timestamps_for_stations(options = {from: 0, to: Time.now.to_i})
     sensor_data_unsorted = SensorDatum.order("sensor_data.time_stamp ASC").where(time_stamp: options[:from]..options[:to])
     ordered_stamps = {}
-    Station.all.each do |station|
-      ordered_stamps[station] = {}
-    end
     sensor_data_unsorted.each do |sensor_data|
       station = Station.find(Sensor.find(sensor_data[:sensor_id]).station_id)
+      ordered_stamps[station] ||= {}
       ordered_stamps[station][sensor_data[:time_stamp]] ||= Hash.new
       ordered_stamps[station][sensor_data[:time_stamp]][sensor_data[:sensor_id]] = sensor_data[:value]
     end
