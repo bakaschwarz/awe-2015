@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   
   patch 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
   put 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
-  
+
+  patch 'main_diagram_info' => 'sensors#update_main_diagram_id', defaults: {format: 'json'}
+  put 'main_diagram_info' => 'sensors#update_main_diagram_id', defaults: {format: 'json'}
 
 
   root 'static_pages#dashboard'

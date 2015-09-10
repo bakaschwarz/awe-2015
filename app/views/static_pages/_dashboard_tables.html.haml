@@ -15,10 +15,10 @@
           %section.md-container
             .md-left
               .md-label Shown
-              %select#leftValues{size: @sensors.count+1, multiple: true}
+              %select#leftValues{main_diagram_id: 1, size: @sensors.count+1, multiple: true}
                 -@sensors.each do |sensor|
                   -if sensor.main_diagram == @main_diagram
-                    %option= sensor.label + ", " + sensor.station.label
+                    %option{sensor_id: sensor.id}= sensor.label + ", " + sensor.station.label
             .md-middle
               .md-label
               %input#btnLeft{type: "button", value: "<<"}
@@ -30,7 +30,7 @@
               %select#rightValues{size: @sensors.count, multiple: true}
                 -@sensors.each do |sensor|
                   -if sensor.main_diagram != @main_diagram
-                    %option= sensor.label + ", " + sensor.station.label
+                    %option{sensor_id: sensor.id}= sensor.label + ", " + sensor.station.label
               %div
                 %input#txtRight{type: "text"}
 :javascript
@@ -50,7 +50,28 @@
   });
 
   $("#save-md-config").click(function () {
-      alert("hi");
+    var sensor_ids_show = $("#leftValues option").map(function() {
+      return $(this).attr("sensor_id");
+    }).get();
+    var sensor_ids_notshow = $("#rightValues option").map(function() {
+      return $(this).attr("sensor_id");
+    }).get();
+    console.log(sensor_ids_show);
+    console.log(sensor_ids_notshow);
+
+    var main_diagram_id = $("#leftValues").attr("main_diagram_id");
+    var sensor_info = {main_diagram_id: main_diagram_id, show: sensor_ids_show, notshow: sensor_ids_notshow};
+    console.log(JSON.stringify(sensor_info));
+
+    return $.ajax({
+      url: "main_diagram_info.json",
+      data: JSON.stringify({"main_diagram_info": sensor_info}),
+      dataType: 'json',
+      type: 'PUT',
+      contentType: 'application/json'
+    });
+
+
   });
 
 %hr
