@@ -73,8 +73,14 @@
     }
 
     $("#rightValues").change(function () {
-        var selectedItem = $("#rightValues option:selected");
-        $("#txtRight").val(selectedItem.text());
+        var string_selected_items = $("#rightValues option:selected").map(function() {
+          return $(this).text()
+        }).get().join(' | ');;
+
+        $("#txtRight").val(string_selected_items);
+
+        //var selectedItem = $("#rightValues option:selected");
+        //$("#txtRight").val(selectedItem.text());
     });
 
     $('#update-md').click(function() {
