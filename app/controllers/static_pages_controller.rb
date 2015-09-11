@@ -22,12 +22,14 @@ class StaticPagesController < ApplicationController
   end
 
   def reload_dashboard
+    @sensors = Sensor.all
     from = Time.parse(params[:filter_from]).to_i
     to = Time.parse(params[:filter_to]).to_i
     render partial: 'static_pages/dashboard_tables', locals: {filter_from: from, filter_to: to}
   end
 
   def reload_main_diagram
+    @sensors = Sensor.all
     from = Time.parse(params[:filter_from]).to_i
     to = Time.parse(params[:filter_to]).to_i
     render partial: 'static_pages/main_diagram', locals: {filter_from: from, filter_to: to}

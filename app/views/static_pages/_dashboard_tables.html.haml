@@ -1,3 +1,5 @@
+#maindiagram-reload
+  = render partial: 'main_diagram', locals: {filter_from: filter_from, filter_to: filter_to}
 %hr
 .panel-group#station-panels
   -station_hash = ordered_timestamps_for_stations({from: filter_from.to_i, to: filter_to.to_i})

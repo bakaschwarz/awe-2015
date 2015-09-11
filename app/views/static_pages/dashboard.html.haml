@@ -3,9 +3,7 @@
   = render 'filter'
   = render 'filter_js'
   .visuals-container#filter_reload
-    #maindiagram-reload
-      = render partial: 'main_diagram', locals: {filter_from: @filter_from, filter_to: @filter_to}
-      = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
+    = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
   .btn.btn-primary#save-station-order-btn= "Save station order"
 
 
