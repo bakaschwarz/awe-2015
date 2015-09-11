@@ -22,7 +22,7 @@ Sensor.create!([
     id: 1,
     label: "CPU Temperatur",
     unit: "°C",
-    visualization_type_id: 2,
+    visualization_type_id: 1,
     sensor: "temp0",
     abbreviation: "t0",
     station_id: 2
@@ -31,7 +31,7 @@ Sensor.create!([
       id: 2,
       label: "GPU Temperatur",
       unit: "°C",
-      visualization_type_id: 2,
+      visualization_type_id: 1,
       sensor: "temp1",
       abbreviation: "t1",
       station_id: 2,
@@ -41,7 +41,7 @@ Sensor.create!([
       id: 3,
       label: "FAN Speed",
       unit: "RPM",
-      visualization_type_id: 2,
+      visualization_type_id: 1,
       sensor: "fan1",
       abbreviation: "f1",
       station_id: 2
@@ -50,8 +50,8 @@ Sensor.create!([
       id: 4,
       label: "Außentemperatur",
       unit: "°C",
-      visualization_type_id: 2,
-      sensor: "temp2",
+      visualization_type_id: 1,
+      sensor: "Termo 5000",
       abbreviation: "t2",
       station_id: 1,
       main_diagram_id: 1
@@ -60,8 +60,8 @@ Sensor.create!([
       id: 5,
       label: "Innentemperatur",
       unit: "°C",
-      visualization_type_id: 2,
-      sensor: "temp3",
+      visualization_type_id: 1,
+      sensor: "Termo 5000",
       abbreviation: "t3",
       station_id: 1
   },
@@ -69,8 +69,8 @@ Sensor.create!([
       id: 6,
       label: "Luftfeuchtigkeit",
       unit: "%",
-      visualization_type_id: 2,
-      sensor: "humid0",
+      visualization_type_id: 1,
+      sensor: "Luftikus V2",
       abbreviation: "h0",
       station_id: 1
   },
@@ -78,8 +78,8 @@ Sensor.create!([
       id: 7,
       label: "Luftdruck",
       unit: "mbar",
-      visualization_type_id: 2,
-      sensor: "press0",
+      visualization_type_id: 1,
+      sensor: "Pascalometer 1000x",
       abbreviation: "p0",
       station_id: 1
   },
@@ -87,8 +87,8 @@ Sensor.create!([
       id: 8,
       label: "Lichtstärke",
       unit: "lux",
-      visualization_type_id: 2,
-      sensor: "light0",
+      visualization_type_id: 1,
+      sensor: "MyEyes 9000 DELUXE",
       abbreviation: "l0",
       station_id: 1
   },
@@ -96,8 +96,8 @@ Sensor.create!([
       id: 9,
       label: "Infrarot",
       unit: "lux",
-      visualization_type_id: 2,
-      sensor: "light1",
+      visualization_type_id: 1,
+      sensor: "RedLight X",
       abbreviation: "l1",
       station_id: 1
   },
@@ -105,8 +105,8 @@ Sensor.create!([
       id: 10,
       label: "UV-Licht",
       unit: "lux",
-      visualization_type_id: 2,
-      sensor: "light2",
+      visualization_type_id: 1,
+      sensor: "CannotSee DX",
       abbreviation: "l2",
       station_id: 1
   },
@@ -114,7 +114,7 @@ Sensor.create!([
     id: 11,
     label: "Temperatur Thermometer",
     unit: "°C",
-    visualization_type_id: 2,
+    visualization_type_id: 1,
     sensor: "Thermometer Hirsch 5",
     abbreviation: "t9",
     station_id: 3
@@ -123,7 +123,7 @@ Sensor.create!([
     id: 12,
     label: "Temperatur Küchenthermometer",
     unit: "°C",
-    visualization_type_id: 2,
+    visualization_type_id: 1,
     sensor: "Thermometer Hirsch 5",
     abbreviation: "t9",
     station_id: 4
@@ -165,12 +165,12 @@ Station.create!([
 
 VisualizationType.create!([
   {
-    name: "Scatter",
-    chart_keyword: "scatter"
-  },
-  {
     name: "Line",
     chart_keyword: "spline"
+  },
+  {
+      name: "Scatter",
+      chart_keyword: "scatter"
   },
   {
     name: "Bar",

@@ -35,8 +35,16 @@ class StationsController < ApplicationController
 
   def destroy
     @station.destroy
-    @station.sensors.each do |sensor|
-      sensor.destroy
+    data = SensorDatum.all
+    Sensor.all.each do |sensor|
+      if sensor.station_id == @station.id
+        sensor.destroy!
+        data.each do |data|
+          if data.sensor_id == sensor.id
+            data.destroy!
+          end
+        end
+      end
     end
 
     respond_to do |format|

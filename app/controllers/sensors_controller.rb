@@ -32,11 +32,12 @@ class SensorsController < ApplicationController
   end
 
   def destroy
-    id = @sensor.id
-    @sensor.destroy
-
-    @sensor.sensor_data.each do |datum|
-      datum.destroy
+    #Needs more stuff
+    @sensor.destroy!
+    SensorDatum.all.each do |data|
+      if data.sensor_id == @sensor.id
+        data.destroy!
+      end
     end
 
     respond_to do |format|
