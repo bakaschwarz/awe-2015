@@ -26,7 +26,7 @@
         %td= f.collection_select :station_id, Station.order(:label),:id,:label,{}, {class: "form-control"}
     %tr
       .field
-        %td= f.label :active
+        %td= f.label "Shown on dashboard?"
         %td= f.check_box :active
     %tr
       .actions

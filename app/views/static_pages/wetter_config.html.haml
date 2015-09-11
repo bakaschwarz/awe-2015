@@ -28,7 +28,7 @@
         %th= "Abbreviation in JSON"
         %th= "Station"
         %th= "Visualization"
-        %th= "Active?"
+        %th= "Shown on dashboard?"
         %th= "Options"
       -@sensors.each do |sensor|
         %tr
@@ -44,4 +44,4 @@
             = link_to "Delete", sensor, method: :delete, data: { confirm: 'Are you sure? Deleting the sensor results in the destruction of all data gathered by it.' }
     %a.btn.btn-primary{href: new_sensor_url} Create new sensor
   %br
-  = render 'misc_config'    
+  = render 'misc_config'

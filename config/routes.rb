@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'api_tokens/update'
+
   get 'configs/update'
 
   resources :sensors
   resources :stations
   resources :configs
+  resources :api_tokens
 
   
   patch 'dashboard_positions' => 'dashboard_positions#update', defaults: {format: 'json'}
@@ -16,10 +19,7 @@ Rails.application.routes.draw do
   root 'static_pages#dashboard'
 
   get 'static_pages/dashboard'
-  get 'static_pages/dashboard_basic'
   get 'static_pages/wetter_config'
-  get 'static_pages/line_chart'
-  get 'static_pages/test'
 
   post 'static_pages/reload_dashboard' => 'static_pages#reload_dashboard'
   post 'static_pages/reload_main_diagram' => 'static_pages#reload_main_diagram'
