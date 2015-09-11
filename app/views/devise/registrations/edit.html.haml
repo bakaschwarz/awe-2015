@@ -1,27 +1,28 @@
-%h2
-  Log In Settings
-= form_for(resource, as: resource_name, url: user_registration_path(), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
+.centered-block
+  %h2
+    Log In Settings
+  = form_for(resource, as: resource_name, url: user_registration_path(), html: { method: :put }) do |f|
+    = devise_error_messages!
+    .field.user-field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, class: 'form-control'
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .field.user-field
+      = f.label :password
+      %i (leave blank if you don't want to change it)
+      %br/
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
+    .field.user-field
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+    .field.user-field
+      = f.label :current_password
+      %i (we need your current password to confirm your changes)
+      %br/
+      = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+    .actions
+      = f.submit "Update", class: 'btn btn-primary'
