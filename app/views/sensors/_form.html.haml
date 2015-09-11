@@ -23,7 +23,7 @@
     %tr
       .field
         %td= f.label :station_id
-        %td= f.collection_select :station_id, Station.order(:label),:id,:label, {}, {class: "form-control"}
+        %td= f.collection_select :station_id, Station.order(:label),:id,:label,{}, {class: "form-control"}
     %tr
       .field
         %td= f.label :active

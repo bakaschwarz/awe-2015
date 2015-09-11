@@ -11,6 +11,7 @@ class StationsController < ApplicationController
   def create
     @station = Station.new(station_params)
     if @station.save
+      flash[:success] = "Station #{@station.label} was successfully created."
       redirect_to static_pages_wetter_config_path
     else
       flash[:danger] = "Illegal Input"
@@ -24,6 +25,7 @@ class StationsController < ApplicationController
 
   def update
     if @station.update(station_params)
+      flash[:success] = "Station #{@station.label} was successfully updated."
       redirect_to static_pages_wetter_config_path
     else
       flash[:danger] = "Illegal Input"
@@ -33,8 +35,12 @@ class StationsController < ApplicationController
 
   def destroy
     @station.destroy
+    @station.sensors.each do |sensor|
+      sensor.destroy
+    end
+
     respond_to do |format|
-      format.html { redirect_to static_pages_wetter_config_path, notice: 'Station was successfully destroyed.' }
+      format.html { redirect_to static_pages_wetter_config_path, notice: 'Station was successfully destroyed.'}
       format.json { head :no_content }
     end
   end

@@ -27,7 +27,7 @@ class SensorsController < ApplicationController
       redirect_to static_pages_wetter_config_path
     else
       flash[:danger] = "Illegal Input"
-      redirect_to = sensor_path(@sensor)
+      redirect_to sensor_path(@sensor)
     end
   end
 

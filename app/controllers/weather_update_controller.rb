@@ -18,6 +18,7 @@ class WeatherUpdateController < ApplicationController
                                        node_number: data_set["_n"],
                                        description: "N/A",
                                        label: "N/A",
+
               )
               new_station.save
               station = new_station

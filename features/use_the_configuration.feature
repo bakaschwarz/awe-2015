@@ -49,7 +49,7 @@ Feature: Use the Configuration
     Then I press "Update Sensor"
     And I will be redirected to the configuration
 
-  Scenario: Editing a station (invalid input)
+  Scenario: Editing a sensor (invalid input)
     Given I am a user with the mail "example@example.com" and the password "asdf"
     When I visit the login page
     And enter my information
@@ -57,10 +57,10 @@ Feature: Use the Configuration
     Then I will be redirected to the dashboard
     Then I press "Configuration"
     And I will be redirected to the configuration
-    When I press "Edit" on the station "Testsensor" with the id "1"
-    Then I am redirected to the edit page for that station
+    When I press "Edit" on the sensor "Testsensor" with the id "1"
+    Then I am redirected to the edit page for that sensor
     And I input blanks in every field
-    Then I press "Update Station"
+    Then I press "Update Sensor"
     Then I will get an error saying "Illegal Input"
 
   Scenario: Editing the default time range (valid input)
@@ -126,7 +126,7 @@ Feature: Use the Configuration
     Then I press "Create new station"
     And I will be redirected to the new station page
     Then I input some random valid things into the station creation
-    Then I press "Create Sensor"
+    Then I press "Create Station"
     And I will be redirected to the configuration
 
   Scenario: Add a new station (invalid)
