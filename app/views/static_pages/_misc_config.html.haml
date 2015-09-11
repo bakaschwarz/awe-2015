@@ -5,5 +5,5 @@
       %tr
         %td Default Filter Range (seconds)
         %td
-          = text_field_tag :filter_range,{},  {class: 'form-control', value: Config.first.filter_range}
+          = text_field_tag :filter_range,{},  {class: 'form-control', value: Config.first.filter_range, id: "default_range"}
     = submit_tag "Update Defaults", class: 'btn btn-primary'

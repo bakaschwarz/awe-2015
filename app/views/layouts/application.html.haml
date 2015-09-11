@@ -15,5 +15,5 @@
         %li= link_to "Log In Settings", edit_user_registration_path
         %li= link_to "Sign Out", destroy_user_session_path, :method => :delete
     - flash.each do |message_type, message|
-      %div{class: "alert alert-info"}= message
+      %div{class: "alert alert-#{message_type == "notice" || message_type == "alert" ? "info" : message_type}"}= message
     = yield

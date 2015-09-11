@@ -1,3 +1,3 @@
 Then(/^I press "([^"]*)"$/) do |arg|
-  click_link(arg)
+  click_on(arg)
 end

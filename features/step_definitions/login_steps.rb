@@ -41,26 +41,29 @@ Then(/^I will be redirected to the dashboard$/) do
 end
 
 Given(/^the database has a configuration with default values$/) do
-  Config.create!
+  Config.create(
+            user_id: @user.id,
+            filter_range: (60*60*2)
+  )
 end
 
 Given(/^the database contains the needed visualization types$/) do
   VisualizationType.create!([
-                                {
-                                    name: "Scatter",
-                                    chart_keyword: "scatter"
-                                },
-                                {
-                                    name: "Line",
-                                    chart_keyword: "spline"
-                                },
-                                {
-                                    name: "Bar",
-                                    chart_keyword: "column"
-                                },
-                                {
-                                    name: "Area",
-                                    chart_keyword: "areaspline"
-                                }
-                            ])
+      {
+          name: "Scatter",
+          chart_keyword: "scatter"
+      },
+      {
+          name: "Line",
+          chart_keyword: "spline"
+      },
+      {
+          name: "Bar",
+          chart_keyword: "column"
+      },
+      {
+          name: "Area",
+          chart_keyword: "areaspline"
+      }
+  ])
 end

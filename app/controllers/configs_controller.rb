@@ -2,8 +2,12 @@ class ConfigsController < ApplicationController
   before_action :set_conf
 
   def update
-    @conf.update(conf_params)
-    redirect_to static_pages_wetter_config_path
+    if @conf.update(conf_params)
+      redirect_to static_pages_wetter_config_path
+    else
+      flash[:danger] = "Illegal Input"
+      redirect_to  static_pages_wetter_config_path
+    end
   end
 
   private
