@@ -76,23 +76,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.default_url_options = { :host => 'example.com' }
-  # ActionMailer Config
-  # Setup for production - deliveries, no errors raised
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-
-  ActionMailer::Base.smtp_settings = {
-      :address    => 'smtp.gmail.com',
-      :domain     => 'gmail.com',
-      :tls => true,
-      :port       => 587,
-      :user_name  => 'wettervisualisierung@gmail.com',
-      :password   => 'gnureisilausivretteW',
-      :authentication => :login,
-      #:enable_starttls_auto => true
-  }
 end

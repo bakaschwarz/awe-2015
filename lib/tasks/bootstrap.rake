@@ -13,7 +13,6 @@ namespace :bootstrap do
     Config.create!(
         user_id: 1,
         filter_range: (60*60*2),
-        filter_precision: 30
     )
   end
 

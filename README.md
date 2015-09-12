@@ -67,10 +67,13 @@ Das zweite Element in der JSON Datei ist das API Token. Es ist nötig, damit das
 Wenn eine andere Datenbanklösung als sqlite gewünscht wird, entsprechend die Gemfile anpassen.
 
 ### Abhängigkeiten
-+ ruby >= 2.2.2
++ ruby >= 2.2.3
 + bundler >= 1.10.6
 
 ### Installation
 
     > bundle --without development test
+    > rake db:migrate:reset && rake bootstrap:all
 ## Lizenz
+
+http://opensource.org/licenses/MIT
