@@ -38,6 +38,7 @@
                         = value_hash[sensor.id]
 :javascript
   
+  // making the station divs collapseable
   var nr_stations = $('.station').length;
   var station_ids = new Array(nr_stations);
   var station_table_bools = new Array(nr_stations).map(function() {return false});
@@ -57,7 +58,8 @@
     });
   });
 
-  updateStationOrder = function(x) {
+  // making the stations sortable and saving its positions in the databse
+  updateStationOrder = function() {
 
     var item, stations;
 
@@ -74,7 +76,6 @@
     })();
 
 
-    console.log(JSON.stringify(stations))
     return $.ajax({
       url: "dashboard_positions.json",
       data: JSON.stringify({
@@ -86,14 +87,7 @@
     });
   };
 
-  ready = function() {
-    $('#station-panels').sortable({
-      onSort: console.log('onSort event')
-    });
-    $('#save-station-order-btn').click(function() {
-      updateStationOrder();
-    });
-  }
-
-  $(document).ready(ready)
-  $(document).on('page:load', ready)
+  $('#station-panels').sortable();
+  $('#save-station-order-btn').click(function() {
+    updateStationOrder();
+  });
