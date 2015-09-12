@@ -49,3 +49,7 @@ end
 When(/^I post it to the server with the invalid token "([^"]*)"$/) do |arg|
   page.driver.post("/weather_update/create", {:s_d => [@json_file], :api_token => arg})
 end
+
+And(/^it contains the actual time right now$/) do
+  @json_file[:_t] = Time.now.to_i
+end

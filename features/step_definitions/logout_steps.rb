@@ -1,3 +1,7 @@
 Then(/^I press "([^"]*)"$/) do |arg|
-  click_on(arg)
+  begin
+   click_on(arg)
+  rescue
+    page.find(arg).click
+  end
 end
