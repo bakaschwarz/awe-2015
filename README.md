@@ -48,7 +48,7 @@ Eine Beispiel JSON Datei könnte wie folgt aussehen:
     
     }
 
-Das JSON Objekt enthält direkt Elemente. Das erste ist ein Array, auf welchen
+Das JSON Objekt enthält direkt zwei Elemente. Das erste ist ein Array, auf welchen
 mit dem String <code>s_d</code> gezeigt wird. Dieses Array enthält einen oder mehrere
 Timestamp Hashes. Diese Hashes enthalten immer <code>_n</code> und <code>_t</code>.
 Ersteres steht für die Stations Nummer, die *Node Number*. Zweites ist der Timestamp, angegeben als
@@ -59,6 +59,8 @@ Es ist nicht nötig, die Einträge für die Stations Nummer zuerst auf der Seite
 eine Stations Nummer erkannt wird, die es noch nicht gibt, wird diese neu angelegt.
 Selbiges gilt für Sensoren. Existiert für diese Station ein mitgesendeter Sensor noch nicht,
 wird dieser neu angelegt.
+
+Das zweite Element in der JSON Datei ist das API Token. Es ist nötig, damit das Update nicht zurückgewiesen wird.
 
 ## Einrichten
 
