@@ -55,7 +55,7 @@ require "json"
 require "ipaddr"
 require "net/http"
 
-LOOP_IN_SEC = 60
+LOOP_IN_SEC = 5
 
 URL = URI("http://localhost:3000/weather_update/create")
 
