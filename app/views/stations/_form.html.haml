@@ -12,8 +12,6 @@
       .field
         %td= f.label :description
         %td= f.text_area :description, :rows => 5, class: "form-control"
-    %tr
-      .actions
-      %td= f.submit class: "btn btn-default"
-      %td
-%a.btn.btn-primary{href: static_pages_wetter_config_url} Back to sensor configuration
+  .actions
+    = f.submit "Update station", class: "btn btn-primary btn-margin-right"
+    %a.btn.btn-danger{href: static_pages_wetter_config_url} Cancel

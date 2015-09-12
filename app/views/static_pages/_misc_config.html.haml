@@ -3,12 +3,12 @@
   = form_tag config_path(Config.first), method: :patch do
     %table.table.table-striped.table-bordered
       %tr
-        %td Filter Range (seconds)
+        %td Filter range [seconds]
         %td
           = text_field_tag :filter_range,{},  {class: 'form-control', value: Config.first.filter_range, id: "default_range"}
-    = submit_tag "Update Defaults", class: 'btn btn-primary'
+    = submit_tag "Update other options", class: 'btn btn-primary'
 
-  %h2 Api Token
+  %h2 API token
   = form_tag api_token_path(ApiToken.first), method: :patch do
     %table.table.table-striped.table-bordered
       %tr
@@ -16,7 +16,7 @@
           = text_field_tag :token, {}, {class: 'form-control', value: ApiToken.first.token, id: "token_field"}
         %td
           %a.btn.btn-danger#api_generate Generate new API token
-    = submit_tag "Update Api Token", class: 'btn btn-primary'
+    = submit_tag "Update API token", class: 'btn btn-primary'
 
 :javascript
   $('#api_generate').click(function() {
