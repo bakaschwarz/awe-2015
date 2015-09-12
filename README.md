@@ -48,7 +48,7 @@ Eine Beispiel JSON Datei könnte wie folgt aussehen:
     
     }
 
-Das JSON Objekt enthält direkt Elemente. Das erste ist ein Array, auf welchen
+Das JSON Objekt enthält direkt zwei Elemente. Das erste ist ein Array, auf welchen
 mit dem String <code>s_d</code> gezeigt wird. Dieses Array enthält einen oder mehrere
 Timestamp Hashes. Diese Hashes enthalten immer <code>_n</code> und <code>_t</code>.
 Ersteres steht für die Stations Nummer, die *Node Number*. Zweites ist der Timestamp, angegeben als
@@ -60,13 +60,25 @@ eine Stations Nummer erkannt wird, die es noch nicht gibt, wird diese neu angele
 Selbiges gilt für Sensoren. Existiert für diese Station ein mitgesendeter Sensor noch nicht,
 wird dieser neu angelegt.
 
+Das zweite Element in der JSON Datei ist das API Token. Es ist nötig, damit das Update nicht zurückgewiesen wird.
+
+Standardmäßig wird ein User mit der E-Mail <code>example@example.com</code> angelegt, mit dem Passwort <code>admin</code>.
+
+Wenn eine E-Mail Passwort Wiederherstellung nötig sein sollte, muss dieses dementsprechend in <code>config/environments/production.rb</code>
+angepasst werden. Der Standard ist, dass eine Mail in der Konsole des Servers ausgegeben wird.
+
 ## Einrichten
 
+Wenn eine andere Datenbanklösung als sqlite gewünscht wird, entsprechend die Gemfile anpassen.
+
 ### Abhängigkeiten
++ ruby >= 2.2.3
 + bundler >= 1.10.6
-+ nodejs >= 0.10.25
 
 ### Installation
 
     > bundle
+    > rake db:migrate:reset && rake bootstrap:all
 ## Lizenz
+
+http://opensource.org/licenses/MIT
