@@ -63,8 +63,8 @@ wird dieser neu angelegt.
 ## Einrichten
 
 ### Abhängigkeiten
++ ruby >= 2.2.2
 + bundler >= 1.10.6
-+ nodejs >= 0.10.25
 
 ### Installation
 
