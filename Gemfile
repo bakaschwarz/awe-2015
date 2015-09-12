@@ -41,6 +41,7 @@ end
 group :test do
   gem 'guard'
   gem 'guard-cucumber'
+  gem 'simplecov'
 end
 
 group :production do

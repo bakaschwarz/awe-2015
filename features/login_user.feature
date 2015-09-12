@@ -6,6 +6,8 @@ Feature: Login
     Given the database has a user with the mail "example@example.com" and the password "asdf"
     Given the database has a configuration with default values
     Given the database contains the needed visualization types
+    And the database contains an api token
+
 
   Scenario: Logged out user visits the dashboard
     When I visit the dashboard

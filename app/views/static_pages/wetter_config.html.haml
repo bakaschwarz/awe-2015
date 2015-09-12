@@ -15,7 +15,7 @@
           %td= station.description
           %td
             = link_to '<i class="fa fa-edit"></i>'.html_safe, station, id: "station_#{station.id}", class: "btn btn-primary btn-edit"
-            = link_to '<i class="fa fa-trash"></i>'.html_safe, station, method: :delete, data: { confirm: 'Are you sure? Deleting the station results in the destruction of all related sensors and all data that was gathered by them.' }, class: "btn btn-danger btn-delete"
+            = link_to '<i class="fa fa-trash"></i>'.html_safe, station, method: :delete, data: { confirm: 'Are you sure? Deleting the station results in the destruction of all related sensors and all data that was gathered by them.' }, class: "btn btn-danger btn-delete", id: "station_delete#{station.id}"
     %a.btn.btn-primary{href: new_station_url} Create new station
   %br
   %div.dashboard-table
@@ -42,7 +42,7 @@
           %td
             %div{style: "width: 5.5em;"}
               = link_to '<i class="fa fa-edit"></i>'.html_safe, sensor, id: "sensor_#{sensor.id}", class: "btn btn-primary btn-edit"
-              = link_to '<i class="fa fa-trash"></i>'.html_safe, sensor, method: :delete, data: { confirm: 'Are you sure? Deleting the sensor results in the destruction of all data gathered by it.' }, class: "btn btn-danger btn-delete"
+              = link_to '<i class="fa fa-trash"></i>'.html_safe, sensor, method: :delete, data: { confirm: 'Are you sure? Deleting the sensor results in the destruction of all data gathered by it.' }, class: "btn btn-danger btn-delete", id: "sensor_delete#{sensor.id}"
     %a.btn.btn-primary{href: new_sensor_url} Create new sensor
   %br
   = render 'misc_config'

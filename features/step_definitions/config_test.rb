@@ -93,3 +93,11 @@ Then(/^I input some random invalid things into the station creation$/) do
   fill_in("station_label", with: "")
   fill_in("station_description", with: "")
 end
+
+Then(/^I accept the confirmation dialog for station deleting$/) do
+  expect(page).to_not have_content "station_1"
+end
+
+Then(/^I accept the confirmation dialog for sensor deleting$/) do
+  expect(page).to_not have_content "sensor_1"
+end

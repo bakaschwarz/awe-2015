@@ -8,6 +8,8 @@ Feature: Use the Configuration
     Given the database contains the needed visualization types
     Given the database contains a station with the label "Teststation" and the node number "1" and the id "1"
     Given the database contains a sensor with the label "Testsensor" and belongs to node number "1" and the id "1"
+    And the database contains an api token
+
 
   Scenario: Editing a station (valid input)
     Given I am a user with the mail "example@example.com" and the password "asdf"
@@ -72,7 +74,7 @@ Feature: Use the Configuration
     Then I press "Configuration"
     And I will be redirected to the configuration
     Then i input a random valid number into defaults range
-    Then I press "Update Defaults"
+    Then I press "Update other options"
     And I will be redirected to the configuration
 
   Scenario: Editing the default time range (invalid input)
@@ -84,7 +86,7 @@ Feature: Use the Configuration
     Then I press "Configuration"
     And I will be redirected to the configuration
     Then i type "Invalid Input" into the defaults range
-    Then I press "Update Defaults"
+    Then I press "Update other options"
     Then I will get an error saying "Illegal Input"
     
   Scenario: Add a new sensor (valid)
@@ -142,3 +144,36 @@ Feature: Use the Configuration
     Then I input some random invalid things into the station creation
     Then I press "Create Station"
     Then I will get an error saying "Illegal Input"
+    
+  Scenario: Update the API Token
+    Given I am a user with the mail "example@example.com" and the password "asdf"
+    When I visit the login page
+    And enter my information
+    And press the login button
+    Then I will be redirected to the dashboard
+    Then I press "Configuration"
+    And I will be redirected to the configuration
+    Then I press "update_api"
+    Then I press "Update API token"
+    
+  Scenario: Delete a station
+    Given I am a user with the mail "example@example.com" and the password "asdf"
+    When I visit the login page
+    And enter my information
+    And press the login button
+    Then I will be redirected to the dashboard
+    Then I press "Configuration"
+    And I will be redirected to the configuration
+    Then I press "station_delete1"
+    Then I accept the confirmation dialog for station deleting
+
+  Scenario: Delete a sensor
+    Given I am a user with the mail "example@example.com" and the password "asdf"
+    When I visit the login page
+    And enter my information
+    And press the login button
+    Then I will be redirected to the dashboard
+    Then I press "Configuration"
+    And I will be redirected to the configuration
+    Then I press "sensor_delete1"
+    Then I accept the confirmation dialog for sensor deleting

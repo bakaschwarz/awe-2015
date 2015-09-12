@@ -16,7 +16,7 @@
           = text_field_tag :token, {}, {class: 'form-control', value: ApiToken.first.token, id: "token_field"}
         %td
           %a.btn.btn-danger#api_generate Generate new API token
-    = submit_tag "Update API token", class: 'btn btn-primary'
+    = submit_tag "Update API token", class: 'btn btn-primary', id: "update_api"
 
 :javascript
   $('#api_generate').click(function() {
