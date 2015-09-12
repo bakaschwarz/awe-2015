@@ -8,7 +8,6 @@
     -@station = station
     -@time_stamp_hash = time_stamp_hash
     -# Make the stations collapsible
-    = render 'collapsejs'
     %div.panel.panel-default.station{ station_id: station.id, dashboard_position: station.dashboard_position}
       %div.panel-heading.panel-header
         %div{id: "station_#{station.id}", style: "cursor: pointer;"}
@@ -19,7 +18,7 @@
             %div.panel-heading.panel-header
               %div{id: "station_table_toggle_#{station.id}", style: "cursor: pointer;"}
                 %h3{id: "station_table_label_#{station.id}"} Show table
-            %table.table.table-striped.table-bordered{id: "station_table_#{station.id}"}
+            %table.table.table-striped.table-bordered.station-table{id: "station_table_#{station.id}"}
               %tr
                 %th= "Time Stamp"
                 -station.sensors.each do |sensor|
@@ -38,8 +37,29 @@
                       -else
                         = value_hash[sensor.id]
 :javascript
+  
+  // making the station divs collapseable
+  var nr_stations = $('.station').length;
+  var station_ids = new Array(nr_stations);
+  var station_table_bools = new Array(nr_stations).map(function() {return false});
 
-  updateStationOrder = function(x) {
+  $('.station').each(function(i) {
+    station_ids[i] = $(this).attr("station_id");
+    $('#station_' + station_ids[i]).click(function(){
+      $('#station_content_' + station_ids[i]).toggle(600);
+    });
+    $('#station_content_' + station_ids[i]).click(function(){
+      $('#station_table_'  + station_ids[i]).toggle(600, function() {
+        $('#station_table_label_' + station_ids[i]).text(function () {
+          station_table_bools[i] = !station_table_bools[i]
+          return station_table_bools[i] == true ? 'Show table' : 'Hide table'
+        })
+      });
+    });
+  });
+
+  // making the stations sortable and saving its positions in the databse
+  updateStationOrder = function() {
 
     var item, stations;
 
@@ -56,7 +76,6 @@
     })();
 
 
-    console.log(JSON.stringify(stations))
     return $.ajax({
       url: "dashboard_positions.json",
       data: JSON.stringify({
@@ -68,14 +87,7 @@
     });
   };
 
-  ready = function() {
-    $('#station-panels').sortable({
-      onSort: console.log('onSort event')
-    });
-    $('#save-station-order-btn').click(function() {
-      updateStationOrder();
-    });
-  }
-
-  $(document).ready(ready)
-  $(document).on('page:load', ready)
+  $('#station-panels').sortable();
+  $('#save-station-order-btn').click(function() {
+    updateStationOrder();
+  });

@@ -20,3 +20,12 @@
 //= require bootstrap-datetimepicker
 //= require jquery.fn.sortable.js
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('#filter-btn').click(function() {
+    var filter_from = $('#filter_from').val();
+    var filter_to = $('#filter_to').val();
+    $('#filter_reload').load('/static_pages/reload_dashboard', { filter_from: filter_from, filter_to: filter_to });
+  });
+});

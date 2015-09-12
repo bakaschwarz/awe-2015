@@ -1,7 +1,6 @@
 .dashboard-container
   %h1 Dashboard
   = render 'filter'
-  = render 'filter_js'
   .visuals-container#filter_reload
     = render partial: 'dashboard_tables', locals: {filter_from: @filter_from, filter_to: @filter_to}
   .btn.btn-primary#save-station-order-btn= "Save station order"
