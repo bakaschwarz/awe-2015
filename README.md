@@ -62,6 +62,11 @@ wird dieser neu angelegt.
 
 Das zweite Element in der JSON Datei ist das API Token. Es ist nötig, damit das Update nicht zurückgewiesen wird.
 
+Standardmäßig wird ein User mit der E-Mail <code>example@example.com</code> angelegt, mit dem Passwort <code>admin</code>.
+
+Wenn eine E-Mail Passwort Wiederherstellung nötig sein sollte, muss dieses dementsprechend in <code>config/environments/production.rb</code>
+angepasst werden. Der Standard ist, dass eine Mail in der Konsole des Servers ausgegeben wird.
+
 ## Einrichten
 
 Wenn eine andere Datenbanklösung als sqlite gewünscht wird, entsprechend die Gemfile anpassen.
