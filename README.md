@@ -77,7 +77,7 @@ Wenn eine andere Datenbanklösung als sqlite gewünscht wird, entsprechend die G
 
 ### Installation
 
-    > bundle --without development test
+    > bundle
     > rake db:migrate:reset && rake bootstrap:all
 ## Lizenz
 
